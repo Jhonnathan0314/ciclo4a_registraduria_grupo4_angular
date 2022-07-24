@@ -1,0 +1,48 @@
+.container {
+    height: 100vh;
+    padding-top: 90px;
+
+    overflow: auto;
+}
+
+.container__title {
+    text-align: center;
+}
+
+.container__table {
+    display: flex;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+    margin-top: 30px;
+    max-height: 300px;
+    width: fit-content;
+}
+
+.table {
+    text-align: center;
+}
+
+.thead th {
+    padding: 10px 40px;
+    font-weight: bold;
+    font-size: 20px;
+    background: #84a9cc;
+}
+
+.tbody th {
+    padding: 8px 40px;
+    font-size: 18px;
+    background: #cadaea;
+}
+
+.table-button {
+    background: #cadaea;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.table-button img {
+    width: 26px;
+}

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="title-design">
+        <div class="container__design-img">
+            <img src="../assets/images/logo.png" alt="logo">
+        </div>
+        <h1 class="h1-semibold">Modulo registro de resultados</h1>
+        <h2>Elecciones al senado</h2>
+    </div>
+    <div class="form">
+        <div class="container__title">
+            <h1>Login</h1>
+        </div>
+        <h2 class="form-h2">Email</h2>
+        <div class="container__section">
+            <input type="email" placeholder="email@example.com" class="container__input" [(ngModel)]="email">
+        </div>
+        <h2 class="form-h2">Contraseña</h2>
+        <div class="container__section">
+            <input type="password" placeholder="Escriba su contraseña" class="container__input" 
+            id="password_input" [(ngModel)]="password">
+            <div class="icon-container">
+                <img [src]="hide_password" alt="" class="password-icon" (click)="showHide()">
+            </div>
+        </div>
+        <div class="container__section">
+            <input type="submit" class="container__submit" value="Login" (click)="login()">
+        </div>
+        <span [class]="class_error">Correo o contraseña incorrectos</span>
+        <div class="container__ref"><a href="register">Registrese ahora</a></div>
+    </div>
+</div>

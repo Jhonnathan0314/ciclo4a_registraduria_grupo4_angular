@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+}
+
+body {
+    background-image: url("assets/images/background-index.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    /* background-image: radial-gradient(closest-side at 50% 53%, #ebecee, #a1c0d3);
+    background-repeat: no-repeat;
+    background-size: contain; */
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.h1-semibold {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 20px;
+}

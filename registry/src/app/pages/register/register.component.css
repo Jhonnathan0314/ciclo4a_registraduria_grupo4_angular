@@ -1,0 +1,177 @@
+.container {
+    height: 100vh;
+    padding: 30px;
+}
+
+.title {
+    padding-right: 100px;
+
+    display: flex;
+    justify-content: right;
+}
+
+.titles { 
+    text-align: center;
+    margin-right: 30px;
+}
+
+.titles .h1-semibold {
+    font-size: 18px;
+    margin: 25px 0px 0px 0px;
+}
+
+.titles h2 {
+    font-size: 14px;
+}
+
+.title img {
+    width: 130px;
+}
+
+.form {
+    padding: 5px 0;
+    padding-left: 40px;
+    margin: 8px 100px 0 100px;
+    box-shadow: 0px 4px 10px 1px;
+    background: #fff;
+
+    height: 350px;
+    text-align: center;
+}
+
+.form__title {
+    text-align: center;
+}
+
+.form__title h1 {
+    font-size: 24px;
+}
+
+.form__section {
+    display: inline-block;
+    width: 500px;
+    min-width: 200px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.form__section h2 {
+    font-size: 20px;
+}
+
+.form__section-input {
+    text-align: center;
+    font-size: 18px;
+    border-radius: 20px;
+    background: #cadaea;
+    outline: none;
+    border: none;
+    width: 400px;
+    height: 35px;
+    margin-top: 10px;
+}
+
+.form__submit {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55vh;
+}
+
+.form__section-submit {
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    font-size: 18px;
+    background: #155392;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+}
+
+.form__section-submit:hover {
+    background: #12477d;
+}
+
+.form__section-submit:active {
+    background: linear-gradient(to top, #12477d, #5486b8);
+}
+
+.form__ref {
+    margin-top: 15px;
+    text-align: center;
+    font-style: italic;
+}
+
+.form__ref a {
+    text-decoration: none;
+    color: #000;
+}
+
+.form__ref a:hover {
+    color: #12477d;
+}
+
+.form__info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form__info p {
+    font-size: 13px;
+}
+
+.hide {
+    display: none;
+}
+
+.error {
+    color: #f00;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin-top: 5px;
+}
+
+@media only screen and (max-width: 1300px){
+    .form__section {
+        width: 350px;
+    }
+    
+    .form__section-input {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .title {
+        padding: 0;
+        justify-content: center;
+    }
+
+    .container {
+        height: 100vh;
+    }
+
+    .form {
+        width: 320px;
+        height: 510px;
+        padding: 5px 15px 0 15px;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    .form__section, .form__submit {
+        margin-top: 5px;
+        width: 250px;
+        text-align: center;
+    }
+
+    .form__submit {
+        margin-top: 10px;
+    }
+    
+    .form__section-input, .form__section-submit {
+        width: 200px;
+    }
+}

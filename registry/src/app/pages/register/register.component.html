@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="title">
+        <div class="titles">
+            <h1 class="h1-semibold">Modulo registro de resultados</h1>
+            <h2>Elecciones al senado</h2>
+        </div>
+        <img src="../assets/images/logo.png" alt="logo">
+    </div>
+    <div class="form">
+        <div class="form__title">
+            <h1 class="h1-semibold">Registro</h1>
+        </div>
+        <div class="form__section">
+            <h2>Nombre de usuario</h2>
+            <input type="text" class="form__section-input" [(ngModel)]="username">
+        </div>
+        <div class="form__section">
+            <h2>Correo</h2>
+            <input type="email" class="form__section-input" [(ngModel)]="email">
+        </div>
+        <div class="form__section">
+            <h2>Contraseña</h2>
+            <input type="password" class="form__section-input" [(ngModel)]="password">
+        </div>
+        <div class="form__section">
+            <h2>Repetir contraseña</h2>
+            <input type="password" class="form__section-input" [(ngModel)]="repeat_password">
+        </div>
+        <div class="form__submit">
+            <input type="submit" class="form__section-submit" value="Registrar" (click)="validateForm()">
+        </div>
+        <span [class]="class_error" id="error">{{error_message}}</span>
+        <div class="form__ref"><a href="login">Ingresar ahora</a></div>
+        <div class="form__info">
+            <p>La cuenta que está creando es una tiene privilegios de ciudadano, contactese con un administrador para
+                aumentar los privilegios de esta cuenta </p>
+        </div>
+    </div>
+</div>

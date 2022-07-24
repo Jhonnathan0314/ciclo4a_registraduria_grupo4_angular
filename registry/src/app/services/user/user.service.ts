@@ -1,0 +1,23 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  constructor(private http: HttpClient) { }
+
+  findAll(): Observable<any>{
+    let url = "/user";
+    return this.http.get<any>(url);
+  }
+
+  findById(id: string): Observable<any>{
+    let url = "/user/" + id;
+    return this.http.get<any>(url);
+  }
+
+}
