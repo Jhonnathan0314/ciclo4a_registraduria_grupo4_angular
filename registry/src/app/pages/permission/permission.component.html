@@ -12,15 +12,15 @@
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr>
-                    <th>https://127.0.0.1/user</th>
-                    <th>GET</th>
+                <tr *ngFor="let permission of permissions">
+                    <th>{{permission.url}}</th>
+                    <th>{{permission.method}}</th>
                     <th>
                         <button class="table-button">
-                            <img src="assets/images/editar.png" alt="">
+                            <img src="assets/images/editar.png" alt="" (click)="update(permission._id)">
                         </button>
                         <button class="table-button">
-                            <img src="assets/images/trash.png" alt="">
+                            <img src="assets/images/trash.png" alt="" (click)="delete(permission._id)">
                         </button>
                     </th>
                 </tr>

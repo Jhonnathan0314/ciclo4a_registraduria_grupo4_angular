@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Permission } from 'src/app/models/permission.model';
+import { PermissionService } from 'src/app/services/permission/permission.service';
+import Swal from 'sweetalert2';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-permission',
@@ -7,9 +13,63 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PermissionComponent implements OnInit {
 
-  constructor() { }
+  permission!: Permission;
+  permissions!: Permission[];
+
+  id!: string;
+
+  constructor(private permissionService: PermissionService, @Inject(DOCUMENT) document: Document, private router: Router) { }
 
   ngOnInit(): void {
+    this.findAll();
+  }
+
+  findAll(): void {
+    this.permissionService.findAll().subscribe(
+      data => {
+        this.permissions = data
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  }
+
+  update(id: any): void {
+    this.router.navigate(['/dashboard/update-permission/' + id])
+  }
+
+  delete(id: any): void {
+    Swal.fire({
+      title: 'Eliminar Permiso',
+      text: 'Estas seguro que desea eliminar el permiso?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor:'#d33',
+      confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        this.permissionService.delete(id).subscribe(
+          data => {
+            Swal.fire(
+              'Eliminado!',
+              'El permiso ha sido eliminado correctamente',
+              'success'
+            )
+            this.ngOnInit();
+          },
+          error => {
+            Swal.fire(
+              'Eliminado!',
+              'El permiso ha sido eliminado correctamente',
+              'success'
+            )
+            this.ngOnInit();
+          }
+        );
+      }
+    });
   }
 
 }

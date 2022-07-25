@@ -1,1 +1,19 @@
-<p>update-permission works!</p>
+<div class="container">
+    <div class="container__title">
+        <h1 class="h1-semibold">Permisos - Actualizar</h1>
+    </div>
+    <div class="form">
+        <div class="form__section-1">
+            <h2>URL</h2>
+            <input type="text" [(ngModel)]="url">
+        </div>
+        <div class="form__section-2">
+            <h2>Metodo</h2>
+            <input type="text" [(ngModel)]="method">
+        </div>
+        <div class="form__submit">
+            <input type="submit" value="Guardar" (click)="updatePermission()">
+            <input type="submit" value="Cancelar" routerLink="/dashboard/permission">
+        </div>
+    </div>
+</div>
