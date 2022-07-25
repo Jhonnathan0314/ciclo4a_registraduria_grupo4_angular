@@ -26,10 +26,10 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  findUserById(): void {
+  findAll(): void {
     console.log("BY ID: ")
     let user: string = this.securityService.getUser();
-    this.userService.findById(user).subscribe(
+    this.userService.findAll().subscribe(
       data => {
         console.log(data)
       },

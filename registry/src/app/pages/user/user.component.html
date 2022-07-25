@@ -12,9 +12,9 @@
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr>
-                    <th>Usuario 1</th>
-                    <th>ejemplo@correo.com</th>
+                <tr *ngFor="let user of users">
+                    <th>{{user.pseudonym}}</th>
+                    <th>{{user.email}}</th>
                     <th>
                         <button class="table-button">
                             <img src="assets/images/editar.png" alt="">

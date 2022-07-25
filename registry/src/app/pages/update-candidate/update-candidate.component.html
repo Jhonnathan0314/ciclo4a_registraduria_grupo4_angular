@@ -1,1 +1,40 @@
 <p>update-candidate works!</p>
+<div class="container">
+    <div class="container__title">
+        <h1 class="h1-semibold">Candidato - Actualizar</h1>
+    </div>
+    <div class="form">
+        <div class="form__select">
+            <h2>Partido politico</h2>
+            <div class="container__select">
+                <div class="container-select-arrow">
+                    <select [(ngModel)]="id_party" class="select">
+                        <option value="{{candidate.party?._id}}">{{candidate.party?.name}}</option>
+                        <option *ngFor="let party of parties" value="{{party._id}}">{{party.name}}</option>
+                    </select>
+                    <span class="select-arrow"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form__section-1">
+            <h2>N° resolución</h2>
+            <input type="number" class="form__section-input" [(ngModel)]="resolutionNumber" placeholder = {{candidate.resolutionNumber}} > 
+        </div>
+        <div class="form__section-2">
+            <h2>Cédula</h2>
+            <input type="number" class="form__section-input" [(ngModel)]="idCard" defaultValue={{candidate.idCard}}>
+        </div>
+        <div class="form__section-3">
+            <h2>Nombres</h2>
+            <input type="text" class="form__section-input" [(ngModel)]="name" defaultValue = {{candidate.name}} >
+        </div>
+        <div class="form__section-4">
+            <h2>Apellidos</h2>
+            <input type="text" class="form__section-input" [(ngModel)]="lastname" defaultValue = {{candidate.lastname}}>
+        </div>
+        <div class="form__submit">
+            <input type="submit" class="form__section-submit" value="Agregar" (click)="updateCandidate()">
+            <input type="submit" class="form__section-submit" value="Cancelar" >
+        </div>
+    </div>
+</div>

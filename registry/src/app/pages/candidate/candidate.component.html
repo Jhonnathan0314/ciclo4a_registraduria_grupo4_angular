@@ -4,10 +4,8 @@
     </div>
     <div class="container__select">
         <div class="container-select-arrow">
-            <select name="" id="" class="select">
-                <option value="">Todas los partidos</option>
-                <option value="">Partido 1</option>
-                <option value="">Partido 2</option>
+            <select name="" class="select">
+                <option *ngFor="let party of parties" >{{party.name}}</option>
             </select>
             <span class="select-arrow"></span>
         </div>
@@ -29,16 +27,14 @@
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr>
-                    <th>Partido 1</th>
-                    <th>Resolucion 1</th>
-                    <th>Cedula 1</th>
-                    <th>Nombre 1</th>
-                    <th>Apellido 1</th>
+                <tr *ngFor="let candidate of candidates" >
+                    <th>{{candidate.party?.name}}</th>
+                    <th>{{candidate.resolutionNumber}}</th>
+                    <th>{{candidate.idCard}}</th>
+                    <th>{{candidate.name}}</th>
+                    <th>{{candidate.lastname}}</th>
                     <th>
-                        <button class="table-button">
-                            <img src="assets/images/editar.png" alt="">
-                        </button>
+                        <a class="table-button" href="candidate/update/{{candidate._id}}"><img src="assets/images/editar.png" alt=""></a>
                         <button class="table-button">
                             <img src="assets/images/trash.png" alt="">
                         </button>

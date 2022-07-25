@@ -32,16 +32,43 @@ const routes: Routes = [
   { path: '', redirectTo:'login', pathMatch:'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { 
-    path: 'dashboard', 
-    component: DashboardComponent,
-    children: [
-      {
-        path:'candidate',
-        component: CandidateComponent
-      }
-    ]
-  }
+  { path: 'dashboard', component: DashboardComponent },
+  
+  // Rutas de los usuarios
+  { path: 'user', component: UserComponent},
+  { path: 'user/create',component:CreateUserComponent},
+  { path: 'user/update/:_id',component:UpdateUserComponent},
+  // Rutas de los roles
+  { path: 'role', component: RoleComponent},
+  { path: 'role/create',component:CreateRoleComponent},
+  { path: 'role/update/:_id',component:UpdateRoleComponent},
+
+  // Rutas de los permisos
+  { path: 'permission', component: PermissionComponent},
+  { path: 'permission/create',component:CreatePermissionComponent},
+  { path: 'permission/update/:_id',component:UpdatePermissionComponent},
+
+  // Rutas de los candidatos
+  { path: 'candidate', component: CandidateComponent},
+  { path: 'candidate/create',component:CreateCandidateComponent},
+  { path: 'candidate/update/:_id',component:UpdateCandidateComponent},
+
+  // Rutas de los partidos
+  { path: 'party', component: PartyComponent},
+  { path: 'party/create',component:CreatePartyComponent},
+  { path: 'party/update/:_id',component:UpdatePartyComponent},
+
+  // Rutas de las mesas
+  { path: 'table', component: TableComponent},
+  { path: 'table/create',component:CreateTableComponent},
+  { path: 'table/update/:_id',component:UpdateTableComponent},
+
+// Rutas de los reportes
+  { path: 'report', component: ResultComponent},
+  { path: 'report/tables',component:TablesComponent},
+  { path: 'report/votes',component:VotesComponent},
+  { path: 'report/percentages',component:PercentagesComponent},
+  { path: 'report/parties',component:PartiesComponent}
 ];
 
 @NgModule({
