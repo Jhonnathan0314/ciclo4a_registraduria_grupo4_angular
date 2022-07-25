@@ -8,18 +8,18 @@
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
+                    <th>Descripción</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr>
-                    <th>Id 1</th>
-                    <th>Nombre 1</th>
+                <tr *ngFor="let role of roles">
+                    <th>{{role._id}}</th>
+                    <th>{{role.name}}</th>
+                    <th>{{role.description}}</th>
                     <th>
-                        <button class="table-button">
-                            <img src="assets/images/editar.png" alt="">
-                        </button>
-                        <button class="table-button">
+                        <a class="table-button" href="dashboard/update-role/{{role._id}}"><img src="assets/images/editar.png" alt=""></a>
+                        <button class="table-button" (click)="deleteRole(role._id)">
                             <img src="assets/images/trash.png" alt="">
                         </button>
                     </th>

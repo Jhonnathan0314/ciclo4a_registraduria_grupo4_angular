@@ -5,11 +5,11 @@
     <div class="form">
         <div class="form-input">
             <h2>Nombre</h2>
-            <input type="text">
+            <input type="text" [(ngModel)]="name">
         </div>
         <div class="form-submit">
-            <input type="submit" value="Crear">
-            <input type="submit" value="Cancelar">
+            <input type="submit" value="Crear" (click)="createRole()">
+            <input type="submit" value="Cancelar" href="dashboard/candidate">
         </div>
     </div>
 </div>
