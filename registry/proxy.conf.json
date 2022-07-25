@@ -10,12 +10,12 @@
         "changeOrigin": true
     },
     "/candidate/*": {
-        "target": "http://127.0.0.1:9998",
+        "target": "http://127.0.0.1:7776",
         "secure": false,
         "changeOrigin": true
     },
     "/party/*": {
-        "target": "http://127.0.0.1:9998",
+        "target": "http://127.0.0.1:7776",
         "secure": false,
         "changeOrigin": true
     }
