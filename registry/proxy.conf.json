@@ -1,4 +1,9 @@
 {
+    "/role/*": {
+        "target": "http://127.0.0.1:7776",
+        "secure": false,
+        "changeOrigin": true
+    },
     "/user/*": {
         "target": "http://127.0.0.1:7776",
         "secure": false,
@@ -15,6 +20,21 @@
         "changeOrigin": true
     },
     "/party/*": {
+        "target": "http://127.0.0.1:7776",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/table/*": {
+        "target": "http://127.0.0.1:7776",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/report/*": {
+        "target": "http://127.0.0.1:7776",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/result/*": {
         "target": "http://127.0.0.1:7776",
         "secure": false,
         "changeOrigin": true
