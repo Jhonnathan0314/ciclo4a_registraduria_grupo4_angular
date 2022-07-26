@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class CreatePartyComponent implements OnInit {
   party!: Party;
   name!: string;
-  motton!: string;
+  motto!: string;
 
   constructor(private partyService:PartyService, private router: Router) { }
 
@@ -21,7 +21,7 @@ export class CreatePartyComponent implements OnInit {
   createParty(): void{
     this.party = {
       name: this.name,
-      motto: this.motton
+      motto: this.motto
     }
 
     this.partyService.create(this.party).subscribe(

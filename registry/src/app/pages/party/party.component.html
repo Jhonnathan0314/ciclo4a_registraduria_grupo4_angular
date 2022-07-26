@@ -3,8 +3,12 @@
         <h1 class="h1-semibold">Partidos</h1>
     </div>
     <div class="container__box">
-        <div class="main-row row-left" (click)="move_left()"><img src="assets/images/previous.png" alt="previous"></div>
-        <div class="main-row row-right" (click)="move_right()"><img src="assets/images/next.png" alt="next"></div>
+        <div class="main-row row-left" (click)="move_left()">
+            <img src="assets/images/previous.png" alt="previous">
+        </div>
+        <div class="main-row row-right" (click)="move_right()">
+            <img src="assets/images/next.png" alt="next">
+        </div>
         <div class="container__content-hide">
             <div class="hide-scroll">
                 <div class="container__box-partido" *ngFor="let party of parties">
@@ -13,12 +17,14 @@
                     </div>
                     <div class="partido-info">
                         <div class="partido-name">{{party.name}}</div>
-                        <div class="partido-motto">{{party.motto}}</div>
+                        <div class="partido-motto ">{{party.motto}}</div>
+                    </div>
+                    <div class="col-6" style="margin-left: 8vh;">
                         <button class="table-button">
-                            <img src="assets/images/edit.png" alt="" (click)="update(table._id)">
+                            <img src="assets/images/edit.png" (click)="update(party._id)">
                         </button>
                         <button class="table-button">
-                            <img src="assets/images/bin.png" alt="" (click)="delete(table._id)">
+                            <img src="assets/images/bin.png" (click)="delete(party._id)">
                         </button>
                     </div>
                 </div>
