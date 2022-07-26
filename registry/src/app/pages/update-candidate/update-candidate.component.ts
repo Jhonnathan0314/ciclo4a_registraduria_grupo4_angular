@@ -13,7 +13,8 @@ import { SecurityService } from 'src/app/services/security/security.service';
 })
 export class UpdateCandidateComponent implements OnInit {
   candidate!: Candidate;
-  parties !: Party[];
+  allParties !: Party[];
+  parties !: Party[] ;
   idCard: string = "";
   resolutionNumber: string = "";
   name: string = "";
@@ -27,15 +28,19 @@ export class UpdateCandidateComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(id_candidate => {
       this.id_candidate = id_candidate.get('_id'); 
       this.getCandidate();
-      console.log("holas")
-      this.getParties();
     });
   }
   getCandidate(){
     this.candidateService.findById(this.id_candidate).subscribe( 
       res=>{
-        this.candidate = res.body;
+        this.candidate = res;
+        this.idCard = this.candidate.idCard||"";
         this.resolutionNumber = this.candidate.resolutionNumber||"";
+        this.name = this.candidate.name||"";
+        this.lastname = this.candidate.lastname||"";
+        console.log(this.candidate.party)
+        this.parties.push(this.candidate.party!)
+        this.getParties();
         console.log(this.resolutionNumber)
         console.log(this.candidate);
       },error => {
@@ -44,11 +49,19 @@ export class UpdateCandidateComponent implements OnInit {
     )
   }
   getParties():void{
-    console.log("hopla")
     this.partyService.findAll().subscribe(
       res => {
-        console.log(res)
-        this.parties = res.body;
+        console.log("hola")
+        this.allParties = res;
+        this.allParties.forEach(
+          party => {
+            console.log(party)
+          if(this.candidate.party != party){
+            console.log(party)
+            this.parties.push(party)
+          }
+        })
+        console.log(this.parties)
       },
       error => {
         console.log(error)

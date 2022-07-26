@@ -18,9 +18,11 @@
                     <th>{{role.name}}</th>
                     <th>{{role.description}}</th>
                     <th>
-                        <a class="table-button" href="dashboard/update-role/{{role._id}}"><img src="assets/images/editar.png" alt=""></a>
-                        <button class="table-button" (click)="deleteRole(role._id)">
-                            <img src="assets/images/trash.png" alt="">
+                        <button class="table-button">
+                            <img src="assets/images/editar.png" alt="" (click)="update(role._id)">
+                        </button>
+                        <button class="table-button">
+                            <img src="assets/images/trash.png" alt="" (click)="delete(role._id)">
                         </button>
                     </th>
                 </tr>

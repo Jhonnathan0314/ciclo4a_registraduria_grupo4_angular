@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Role } from 'src/app/models/role.model';
 import { RoleService } from 'src/app/services/role/role.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-create-role',
   templateUrl: './create-role.component.html',
@@ -18,15 +18,21 @@ export class CreateRoleComponent implements OnInit {
 
   createRole(){
     this.role = {name:this.name}
+    
     this.roleService.create(this.role).subscribe(
       res=>{
-        console.log(res)
+        Swal.fire(
+          'Creado!',
+          'El rol ha sido creado correctamente',
+          'success'
+        )
         this.router.navigate(['dashboard/role']);
+        this.ngOnInit();
+        console.log(res)
       },error=>{
         console.log(error)
       }
     )
     
   }
-
 }

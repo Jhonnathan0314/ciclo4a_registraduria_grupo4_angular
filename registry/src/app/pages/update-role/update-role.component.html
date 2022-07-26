@@ -6,7 +6,7 @@
         <div class="form-1">
             <div class="form-1-input">
                 <h2>Nombre</h2>
-                <input type="text">
+                <input type="text" [(ngModel)]="name">
             </div>
             <div class="form-submit">
                 <input type="submit" value="Crear">
@@ -41,7 +41,8 @@
                 </div>
             </div>
             <div class="form-submit">
-                <input type="submit" value="Añadir">
+                <input type="submit" value="Guardar" (click)="updateRole()">
+            <input type="submit" value="Cancelar" routerLink="/dashboard/role">
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ export class PartyService {
     return this.http.get<any>(this.URL + "/" + id);
   }
 
-  create(id_party:String, party:Party): Observable<any>{
+  create(party:Party): Observable<any>{
     return this.http.post<any>(this.URL ,party);
   }
 

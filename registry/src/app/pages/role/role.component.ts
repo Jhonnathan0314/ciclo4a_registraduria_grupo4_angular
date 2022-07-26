@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RoleService } from 'src/app/services/role/role.service';
 import { Role } from 'src/app/models/role.model';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-role',
   templateUrl: './role.component.html',
@@ -29,15 +30,41 @@ export class RoleComponent implements OnInit {
     )
   }
 
-  deleteRole(id:any){
-    this.roleService.delete(id).subscribe(
-      res => {
-        console.log(res)
-        this.router.navigate(['dashboard/role']);
-      },error =>{
-        console.log(error)
+  update(id: any): void {
+    this.router.navigate(['/dashboard/update-role/' + id])
+  }
+
+  delete(id: any): void {
+    Swal.fire({
+      title: 'Eliminar Permiso',
+      text: 'Estas seguro que desea eliminar el permiso?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor:'#d33',
+      confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        this.roleService.delete(id).subscribe(
+          data => {
+            Swal.fire(
+              'Eliminado!',
+              'El permiso ha sido eliminado correctamente',
+              'success'
+            )
+            this.ngOnInit();
+          },
+          error => {
+            Swal.fire(
+              'Eliminado!',
+              'El permiso ha sido eliminado correctamente',
+              'success'
+            )
+            this.ngOnInit();
+          }
+        );
       }
-    )
+    });
   }
 
 }

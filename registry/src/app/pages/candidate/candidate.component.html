@@ -4,8 +4,8 @@
     </div>
     <div class="container__select">
         <div class="container-select-arrow">
-            <select name="" class="select">
-                <option *ngFor="let party of parties" >{{party.name}}</option>
+            <select [(ngModel)] = "filterParty" class="select">
+                <option *ngFor="let party of parties">{{party.name}}</option>
             </select>
             <span class="select-arrow"></span>
         </div>
@@ -34,9 +34,11 @@
                     <th>{{candidate.name}}</th>
                     <th>{{candidate.lastname}}</th>
                     <th>
-                        <a class="table-button" href="candidate/update/{{candidate._id}}"><img src="assets/images/editar.png" alt=""></a>
                         <button class="table-button">
-                            <img src="assets/images/trash.png" alt="">
+                            <img src="assets/images/editar.png" alt="" (click)="update(candidate._id)">
+                        </button>
+                        <button class="table-button">
+                            <img src="assets/images/trash.png" alt="" (click)="delete(candidate._id)">
                         </button>
                     </th>
                 </tr>
