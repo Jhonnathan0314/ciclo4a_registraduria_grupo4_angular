@@ -13,15 +13,15 @@
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr>
-                    <th>Mesa 1</th>
-                    <th>Numero de cedulas 1</th>
+                <tr *ngFor="let table of tables">
+                    <th>{{table.name}}</th>
+                    <th>{{table.numberIds}}</th>
                     <th>
                         <button class="table-button">
-                            <img src="assets/images/editar.png" alt="">
+                            <img src="assets/images/editar.png" alt="" (click)="update(table._id)">
                         </button>
                         <button class="table-button">
-                            <img src="assets/images/trash.png" alt="">
+                            <img src="assets/images/trash.png" alt="" (click)="delete(table._id)">
                         </button>
                     </th>
                 </tr>

@@ -5,15 +5,15 @@
     <div class="form">
         <div class="form__section-1">
             <h2>Nombre</h2>
-            <input type="text">
+            <input type="text" [(ngModel)] = "name">
         </div>
         <div class="form__section-2">
             <h2>Lema</h2>
-            <input type="text">
+            <input type="text" [(ngModel)] = "motto">
         </div>
         <div class="form__submit">
-            <input type="submit" value="Agregar">
-            <input type="submit" value="Cancelar">
+            <input type="submit" class="form__section-submit" value="Agregar" (click)="createParty()">
+            <input type="submit" class="form__section-submit" value="Cancelar" href="dashboard/party" >
         </div>
     </div>
 </div>

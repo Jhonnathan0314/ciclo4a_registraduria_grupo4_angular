@@ -1,5 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Party } from 'src/app/models/party.model';
+import { PartyService } from 'src/app/services/party/party.service';
+import Swal from'sweetalert2';
 
 @Component({
   selector: 'app-party',
@@ -8,10 +12,63 @@ import { Component, Inject, OnInit } from '@angular/core';
 })
 export class PartyComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  parties!: Party[];
+
+  constructor(@Inject(DOCUMENT) private document: Document, private partyService:PartyService, private router: Router ) { }
 
   ngOnInit(): void {
+    this.getParties();
   }
+
+  getParties(){
+    this.partyService.findAll().subscribe(
+      res =>{
+        this.parties = res;
+      }, 
+      error =>{
+        console.error(error);
+      } 
+
+    )
+  }
+
+  update(id: any): void {
+    this.router.navigate(['/dashboard/update-party/' + id])
+  }
+
+  delete(id: any): void {
+    Swal.fire({
+      title: 'Eliminar Permiso',
+      text: 'Esta seguro que desea eliminar el partido?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor:'#d33',
+      confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        this.partyService.delete(id).subscribe(
+          res => {
+            Swal.fire(
+              'Eliminado!',
+              'El partido ha sido eliminado correctamente',
+              'success'
+            )
+            this.ngOnInit();
+          },
+          error => {
+            Swal.fire(
+              'Eliminado!',
+              'El partido ha sido eliminado correctamente',
+              'success'
+            )
+            this.ngOnInit();
+          }
+        );
+      }
+    });
+  }
+
 
   move_left(): void {
     let movePixel = 570;

@@ -5,11 +5,11 @@
     <div class="form">
         <div class="form__section">
             <h2>Cedulas inscritas</h2>
-            <input type="number" class="form__section-input">
+            <input type="number" class="form__section-input" [(ngModel)] = "numberIds" >
         </div>
         <div class="form__submit">
-            <input type="submit" class="form__section-submit" value="Agregar">
-            <input type="submit" class="form__section-submit" value="Cancelar">
+            <input type="submit" class="form__section-submit" value="Agregar" (click)="createTable()">
+            <input type="submit" class="form__section-submit" value="Cancelar" href="dashboard/table" >
         </div>
     </div>
 </div>

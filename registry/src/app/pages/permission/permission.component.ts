@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Permission } from 'src/app/models/permission.model';
 import { PermissionService } from 'src/app/services/permission/permission.service';
 import Swal from 'sweetalert2';
-import swal from'sweetalert2';
+
 
 @Component({
   selector: 'app-permission',

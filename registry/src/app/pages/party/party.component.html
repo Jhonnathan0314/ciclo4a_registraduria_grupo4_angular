@@ -7,139 +7,19 @@
         <div class="main-row row-right" (click)="move_right()"><img src="assets/images/next.png" alt="next"></div>
         <div class="container__content-hide">
             <div class="hide-scroll">
-                <div class="container__box-partido">
+                <div class="container__box-partido" *ngFor="let party of parties">
                     <div class="partido-img">
-                        <img src="assets/images/partido-pacto-historico.png">
+                        <img src="assets/images/politics.png">
                     </div>
                     <div class="partido-info">
-                        <div class="partido-name">Pacto historico</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-cambio-radical.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Cambio radical</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-centro-democratico.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Centro democratico</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-centro-esperanza.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Centro esperanza</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-comunes.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Comunes</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-estamos-listas.jpg">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Estamos listas</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-fuerza-ciudadana.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Fuerza ciudadana</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-gente-nueva.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Gente nueva</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-liberal.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Liberal</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-mira.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Mira</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-nuevo-liberalismo.jpg">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Nuevo liberalismo</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-r11.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">R11</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-salvacion-nacional.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Salvacion nacional</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-sos-colombia.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">SOS Colombia</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    </div>
-                </div>
-                <div class="container__box-partido">
-                    <div class="partido-img">
-                        <img src="assets/images/partido-u.png">
-                    </div>
-                    <div class="partido-info">
-                        <div class="partido-name">Partido de la U</div>
-                        <div class="partido-motto">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                        <div class="partido-name">{{party.name}}</div>
+                        <div class="partido-motto">{{party.motto}}</div>
+                        <button class="table-button">
+                            <img src="assets/images/edit.png" alt="" (click)="update(table._id)">
+                        </button>
+                        <button class="table-button">
+                            <img src="assets/images/bin.png" alt="" (click)="delete(table._id)">
+                        </button>
                     </div>
                 </div>
             </div>
