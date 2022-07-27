@@ -19,9 +19,9 @@
             <h2 class="h2">Candidato</h2>
             <div class="container__select">
                 <div class="container-select-arrow">
-                    <select [(ngModel)]="id_party" class="select">
+                    <select [(ngModel)]="id_candidate" class="select">
                         <option value="" disabled>Seleccione un candidato</option>
-                        <option *ngFor="let party of parties" value="{{party._id}}">{{party.name}}</option>
+                        <option *ngFor="let candidate of candidates" value="{{candidate._id}}">{{candidate.name}}</option>
                     </select>
                     <span class="select-arrow"></span>
                 </div>

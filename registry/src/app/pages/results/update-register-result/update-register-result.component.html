@@ -1,1 +1,37 @@
-<p>update-register-result works!</p>
+<div class="container">
+    <div class="container__title">
+        <h1 class="h1-semibold">Resultado - Crear</h1>
+    </div>
+    <div class="form">
+        <div class="form-select-1">
+            <h2 class="h2">Mesa</h2>
+            <div class="container__select">
+                <div class="container-select-arrow">
+                    <select [(ngModel)]="id_table" class="select">
+                        <option *ngFor="let table of tables" value="{{table._id}}" [selected]= "table._id == id_table">{{table._id}}</option>
+                    </select>
+                    <span class="select-arrow"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-select-2">
+            <h2 class="h2">Candidato</h2>
+            <div class="container__select">
+                <div class="container-select-arrow">
+                    <select [(ngModel)]="id_candidate" class="select">
+                        <option *ngFor="let candidate of candidates" value="{{candidate._id}}" [selected]= "candidate._id == id_candidate">{{candidate.name}}</option>
+                    </select>
+                    <span class="select-arrow"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-input">
+            <h2>Cantidad de votos</h2>
+            <input type="text" [(ngModel)]="votes">
+        </div>
+        <div class="form-submit">
+            <input type="submit" class="form__section-submit" value="Guardar" (click)="updateResult()">
+            <input type="submit" class="form__section-submit" value="Cancelar" routerLink="/pages/results/result" >
+        </div>
+    </div>
+</div>

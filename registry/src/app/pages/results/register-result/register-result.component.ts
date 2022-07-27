@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Party } from 'src/app/models/party.model';
+import { Candidate } from 'src/app/models/candidate.model';
 import { Result } from 'src/app/models/result.model';
 import { Table } from 'src/app/models/table.model';
-import { PartyService } from 'src/app/services/party/party.service';
+import { CandidateService } from 'src/app/services/candidate/candidate.service';
 import { ResultService } from 'src/app/services/result/result.service';
 import { TableService } from 'src/app/services/table/table.service';
 import Swal from 'sweetalert2';
@@ -15,23 +15,23 @@ import Swal from 'sweetalert2';
 })
 export class RegisterResultComponent implements OnInit {
 
-  parties!: Party[];
+  candidates!: Candidate[];
   tables!: Table[];
   result!: Result;
   votes!: Number;
-  id_party!:string;
+  id_candidate!:string;
   id_table!:string;
-  constructor(private resultService:ResultService, private partyService:PartyService,private tableService:TableService, private router: Router) { }
+  constructor(private resultService:ResultService, private candidateService:CandidateService,private tableService:TableService, private router: Router) { }
 
   ngOnInit(): void {
     this.getTables();
-    this.getPaties()
+    this.getCandidates()
   }
 
-  getPaties():void{
-    this.partyService.findAll().subscribe(
+  getCandidates():void{
+    this.candidateService.findAll().subscribe(
       res=>{
-        this.parties = res;
+        this.candidates = res;
       }
     )
   }
@@ -47,7 +47,7 @@ export class RegisterResultComponent implements OnInit {
       votes:this.votes,
     }
 
-    this.resultService.create(this.id_table,this.id_party,this.result).subscribe(
+    this.resultService.create(this.id_table,this.id_candidate,this.result).subscribe(
       res => {
         Swal.fire(
           'Creado!',

@@ -19,13 +19,13 @@ export class ResultService {
     return this.http.get<any>(this.URL + "/" +  id);
   }
 
-  create(id_table:String, id_party:String, result:Result): Observable<any>{
-    let url = "/table/" + id_table + "/party/" + id_party;
+  create(id_table:String, id_candidate:String, result:Result): Observable<any>{
+    let url = "/table/" + id_table + "/candidate/" + id_candidate;
     return this.http.post<any>(this.URL + url, result);
   }
 
-  update(id:String, id_table:String, id_party:String, result:Result): Observable<any>{
-    let url = "/" +  id + "/table/" + id_table + "/party/" + id_party;
+  update(id:String, id_table:String, id_candidate:String, result:Result): Observable<any>{
+    let url = "/" +  id + "/table/" + id_table + "/candidate/" + id_candidate;
     return this.http.put<any>(this.URL + url,result);
   }
 

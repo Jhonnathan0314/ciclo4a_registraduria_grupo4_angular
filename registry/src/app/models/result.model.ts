@@ -1,9 +1,9 @@
-import { Party } from "./party.model";
+import { Candidate } from "./candidate.model";
 import { Table } from "./table.model";
 
 export interface Result{
     _id?: string;
-    party?: Party;
+    candidate?: Candidate;
     table?: Table;
     votes?:Number;
 }

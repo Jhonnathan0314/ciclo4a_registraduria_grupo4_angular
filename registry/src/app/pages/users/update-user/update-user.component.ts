@@ -25,10 +25,10 @@ export class UpdateUserComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(id_candidate => {
       this.id_user = id_candidate.get('_id'); 
-      this.getRole();
+      this.getUser();
     });
   }
-  getRole(){
+  getUser(){
     this.userService.findById(this.id_user).subscribe( 
       res=>{
         this.user = res;
