@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       this.securityService.login(user_data).subscribe(
         data => {
           console.log(data),
-          this.router.navigate(['dashboard']),
+          this.router.navigate(['/pages/dashboard']),
           this.securityService.saveSessionData(data)
       },
         error => {

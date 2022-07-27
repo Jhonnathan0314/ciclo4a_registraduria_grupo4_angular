@@ -18,7 +18,15 @@
                         <li><a href="report/percentages">Porcentajes</a></li>
                     </ul>
                 </li>
-                <li class="nav__ul-li"><a href="login">Salir</a></li>
+                <li class="nav__ul-li">
+                    <a>Mi cuenta</a>
+                    <ul class="nav__ul-submenu">
+                        <li><a routerLink="#">{{pseudonym}}</a></li>
+                        <li><a routerLink="#">{{email}}</a></li>
+                        <li><a routerLink="#">{{role_name}}</a></li>
+                        <li><a routerLink="/security/login" (click)="logout()">Salir</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

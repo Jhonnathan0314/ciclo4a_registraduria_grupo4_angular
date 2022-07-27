@@ -38,11 +38,26 @@ header {
     background: #5486b8;
 }
 
+.nav__ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav__ul-li {
+    flex-grow: 1;
+}
+
+.nav__ul-li:last-child {
+    flex-grow: 3;
+    margin-right: 10px;
+}
+
 /* Submenu */
 .nav__ul-submenu {
     position: absolute;
     background: #84a9cc;
-    width: 130%;
+    width: 160%;
     visibility: hidden;
     opacity: 0;
     transition: opacity .3s;

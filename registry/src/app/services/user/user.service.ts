@@ -12,25 +12,25 @@ export class UserService {
   URL = "/user";
   constructor(private http: HttpClient) { }
 
-  findAll(): Observable<any>{
-    return this.http.get<any>(this.URL);
+  findAll(): Observable<any[]>{
+    return this.http.get<User[]>(this.URL);
   }
 
-  findById(id: string): Observable<any>{
-    return this.http.get<any>(this.URL + "/" +  id);
+  findById(id: string): Observable<User>{
+    return this.http.get<User>(this.URL + "/" +  id);
   }
 
-  create(id_role:String, user:User): Observable<any>{
+  create(id_role:String, user:User): Observable<User>{
     let url = "/role/" + id_role;
-    return this.http.post<any>(this.URL + url, user);
+    return this.http.post<User>(this.URL + url, user);
   }
 
-  update(id:String, id_role:String, user:User): Observable<any>{
+  update(id:String, id_role:String, user:User): Observable<User>{
     let url = "/" +  id + "/role/" + id_role;
-    return this.http.put<any>(this.URL + url,user);
+    return this.http.put<User>(this.URL + url,user);
   }
 
-  delete(id: string): Observable<any>{
-    return this.http.delete<any>(this.URL + "/" +  id);
+  delete(id: string): Observable<User>{
+    return this.http.delete<User>(this.URL + "/" +  id);
   }
 }

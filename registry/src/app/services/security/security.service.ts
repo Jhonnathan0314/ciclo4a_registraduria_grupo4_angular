@@ -12,7 +12,6 @@ export class SecurityService {
 
   user_id: string = localStorage.getItem("user_id")?.toString()!;
   token: string = localStorage.getItem("token")?.toString()!;
-  role_id!: string;
 
   constructor(private http: HttpClient, private router: Router) {
     this.checkActualSession();
@@ -84,14 +83,6 @@ export class SecurityService {
 
   getToken(): string {
     return this.token;
-  }
-
-  setRole(id: string): void {
-    this.role_id = id;
-  }
-
-  getRole(): string {
-    return this.role_id;
   }
 
 }

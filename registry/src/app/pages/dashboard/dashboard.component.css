@@ -1,0 +1,40 @@
+.container{
+    margin: 20px 100px 0 100px;
+    background: #fff;
+    height: 370px;
+    padding: 30px;
+    height: 350px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    box-shadow: 0 0 8px 4px;
+}
+
+.container__title{
+    flex-grow: 1;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+
+}
+
+.container__title h1{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.container__info{
+    flex-grow: 2;
+    text-align: center; 
+    padding: 20px 10px;
+
+}
+
+.container__info img{
+    margin-top: 20px;
+    width: 200px;
+}

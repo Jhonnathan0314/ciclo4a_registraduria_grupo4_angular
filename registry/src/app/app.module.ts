@@ -1,26 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminHeaderComponent } from './global/admin-header/admin-header.component';
-import { JuryHeaderComponent } from './global/jury-header/jury-header.component';
-import { CitizenHeaderComponent } from './global/citizen-header/citizen-header.component';
-import { FooterComponent } from './global/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
-import { UpdateRegisterResultComponent } from './pages/update-register-result/update-register-result/update-register-result.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
-    AdminHeaderComponent,
-    JuryHeaderComponent,
-    CitizenHeaderComponent,
-    FooterComponent,
-    routingComponents,
-    UpdateRegisterResultComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

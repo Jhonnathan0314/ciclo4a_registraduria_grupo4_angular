@@ -1,0 +1,7 @@
+<app-admin-header *ngIf="role_name=='Administrador'"></app-admin-header>
+<app-citizen-header *ngIf="role_name=='Ciudadano'"></app-citizen-header>
+<app-jury-header *ngIf="role_name=='Jurado'"></app-jury-header>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

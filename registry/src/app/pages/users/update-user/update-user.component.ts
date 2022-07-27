@@ -36,7 +36,7 @@ export class UpdateUserComponent implements OnInit {
         this.email = this.user.email||"";
         this.password = this.user.password||"";
         this.role_user = this.user.role!;
-        console.log(res.role.name)
+        console.log(res.role!.name!)
         this.getRoles();
       },error => {
         console.log(error);

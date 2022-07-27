@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./create-party.component.css']
 })
 export class CreatePartyComponent implements OnInit {
+  
   party!: Party;
   name!: string;
   motto!: string;
