@@ -65,21 +65,21 @@ export class UpdateRegisterResultComponent implements OnInit {
       votes: this.votes,
     };
 
-    this.resultService.update(this.id_result, this.id_candidate, this.id_table, this.result).subscribe(
+    this.resultService.update(this.id_result, this.id_table, this.id_candidate, this.result).subscribe(
       data => {
         Swal.fire(
           'Actualizado!',
-          'El usuario ha sido actualizado correctamente',
+          'El registro ha sido actualizado correctamente',
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/pages/users/user'])
+        this.router.navigate(['/pages/results/result'])
       },
       error => {
         console.log(error)
         Swal.fire(
           'Ups, Algo ha sucedido!',
-          'El usuario no ha sido actualizado',
+          'El registro no ha sido actualizado',
           'error'
         )
       }
