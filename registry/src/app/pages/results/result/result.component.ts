@@ -28,7 +28,7 @@ export class ResultComponent implements OnInit {
   }
 
   update(id: any): void {
-    this.router.navigate(['/dashboard/update-register-result/' + id])
+    this.router.navigate(['/pages/results/update-register-result/' + id])
   }
 
   delete(id: any): void {

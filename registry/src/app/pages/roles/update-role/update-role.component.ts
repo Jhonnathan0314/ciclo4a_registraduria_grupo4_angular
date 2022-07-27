@@ -36,7 +36,7 @@ export class UpdateRoleComponent implements OnInit {
         }
         this.roleService.update(this.id_role, this.role).subscribe(
           data => {
-            this.router.navigate(['/dashboard/role'])
+            this.router.navigate(['/pages/roles/role'])
           },
           error => {
             console.log(error)

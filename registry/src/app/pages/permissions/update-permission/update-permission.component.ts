@@ -42,7 +42,7 @@ export class UpdatePermissionComponent implements OnInit {
           }
           this.permissionService.update(id, this.permission).subscribe(
             data => {
-              this.router.navigate(['/dashboard/permission'])
+              this.router.navigate(['/pages/permissions/permission'])
             },
             error => {
               console.log(error)

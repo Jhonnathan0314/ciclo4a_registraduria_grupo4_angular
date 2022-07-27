@@ -30,7 +30,7 @@ export class CreateTableComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/table'])
+        this.router.navigate(['/pages/tables/table'])
         console.log(res)
       },
       error => {

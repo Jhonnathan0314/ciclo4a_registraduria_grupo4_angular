@@ -27,7 +27,7 @@ export class CreatePermissionComponent implements OnInit {
     this.permissionService.create(this.permission).subscribe(
       data => {
         console.log("CREADO: " + data);
-        this.router.navigate(['dashboard/permission'])
+        this.router.navigate(['/pages/permissions/permission'])
       },
       error => {
         console.log(error);

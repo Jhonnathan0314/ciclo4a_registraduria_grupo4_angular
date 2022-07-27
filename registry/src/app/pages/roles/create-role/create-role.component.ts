@@ -26,7 +26,7 @@ export class CreateRoleComponent implements OnInit {
           'El rol ha sido creado correctamente',
           'success'
         )
-        this.router.navigate(['dashboard/role']);
+        this.router.navigate(['/pages/roles/role']);
         this.ngOnInit();
         console.log(res)
       },error=>{

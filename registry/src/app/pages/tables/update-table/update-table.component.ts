@@ -44,7 +44,7 @@ export class UpdateTableComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/party'])
+        this.router.navigate(['/pages/tables/table'])
       },
       error => {
         console.log(error)

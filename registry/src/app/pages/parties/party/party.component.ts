@@ -33,7 +33,7 @@ export class PartyComponent implements OnInit {
   }
 
   update(id: any): void {
-    this.router.navigate(['/pages/parties/update-party/' + id])
+    this.router.navigate(['/pages/parties/update/' + id])
   }
 
   delete(id: any): void {

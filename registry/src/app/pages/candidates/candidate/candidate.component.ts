@@ -48,7 +48,7 @@ export class CandidateComponent implements OnInit {
   }
 
   update(id: any): void {
-    this.router.navigate(['/pages/candidates/update-candidate/' + id])
+    this.router.navigate(['/pages/candidates/update/' + id])
   }
 
   delete(id: any): void {

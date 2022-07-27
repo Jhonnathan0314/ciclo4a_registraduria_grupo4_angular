@@ -13,7 +13,7 @@ const routes: Routes = [
     component:RegisterResultComponent
   },
   { 
-    path: 'update-register/:_id',
+    path: 'update/:_id',
     component:UpdateRegisterResultComponent
   },
 ];

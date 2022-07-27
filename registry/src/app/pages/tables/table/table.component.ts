@@ -32,7 +32,7 @@ export class TableComponent implements OnInit {
   }
 
   update(id: any): void {
-    this.router.navigate(['/dashboard/update-table/' + id])
+    this.router.navigate(['/pages/tables/update/' + id])
   }
 
   delete(id: any): void {

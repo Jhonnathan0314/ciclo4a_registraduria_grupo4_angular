@@ -36,7 +36,7 @@ export class PermissionComponent implements OnInit {
   }
 
   update(id: any): void {
-    this.router.navigate(['/dashboard/update-permission/' + id])
+    this.router.navigate(['/pages/permissions/update/' + id])
   }
 
   delete(id: any): void {

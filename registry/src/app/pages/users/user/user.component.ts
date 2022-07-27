@@ -33,13 +33,13 @@ export class UserComponent implements OnInit {
   }
 
   update(id: any): void {
-    this.router.navigate(['/dashboard/update-user/' + id])
+    this.router.navigate(['/pages/users/update/' + id])
   }
 
   delete(id: any): void {
     Swal.fire({
       title: 'Eliminar Permiso',
-      text: 'Estas seguro que desea eliminar el permiso?',
+      text: 'Estas seguro que desea eliminar el usuario?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

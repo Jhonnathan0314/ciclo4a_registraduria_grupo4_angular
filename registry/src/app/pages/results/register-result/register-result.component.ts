@@ -55,7 +55,7 @@ export class RegisterResultComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/result/'])
+        this.router.navigate(['/pages/results/result/'])
         console.log(res)
       },
       error => {

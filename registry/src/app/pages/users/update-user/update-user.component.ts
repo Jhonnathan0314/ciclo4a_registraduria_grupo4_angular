@@ -69,7 +69,7 @@ export class UpdateUserComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/user'])
+        this.router.navigate(['/pages/users/user'])
       },
       error => {
         console.log(error)

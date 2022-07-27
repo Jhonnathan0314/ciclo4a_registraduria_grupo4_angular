@@ -46,7 +46,7 @@ export class CreateUserComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/user/'])
+        this.router.navigate(['/pages/users/user/'])
         console.log(res)
       },
       error => {

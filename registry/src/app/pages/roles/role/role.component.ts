@@ -31,13 +31,13 @@ export class RoleComponent implements OnInit {
   }
 
   update(id: any): void {
-    this.router.navigate(['/dashboard/update-role/' + id])
+    this.router.navigate(['/pages/roles/update/' + id])
   }
 
   delete(id: any): void {
     Swal.fire({
       title: 'Eliminar Permiso',
-      text: 'Estas seguro que desea eliminar el permiso?',
+      text: 'Estas seguro que desea eliminar el rol?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
