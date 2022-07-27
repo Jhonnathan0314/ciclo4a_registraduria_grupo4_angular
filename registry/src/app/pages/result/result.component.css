@@ -40,7 +40,7 @@
     min-width: 200px;
     max-width: 250px;
     min-height: 180px;
-    max-height: 180px;
+    max-height: 250px;
     margin-top: 5px;
     margin-left: 40px;
     box-shadow: 0px 1px 6px #000;
@@ -169,4 +169,12 @@
     border-top: .35em solid #cadaea;
 
     top: 60%;
+}
+.table-button{
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    background-color: #cadaea;
+    margin: 10px 10px 15px 10px;
+
 }

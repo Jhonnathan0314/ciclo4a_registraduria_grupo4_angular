@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Party } from 'src/app/models/party.model';
 import { Candidate } from 'src/app/models/candidate.model';
 import { SecurityService } from 'src/app/services/security/security.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-update-candidate',
   templateUrl: './update-candidate.component.html',
@@ -70,14 +71,31 @@ export class UpdateCandidateComponent implements OnInit {
   }
   updateCandidate(): void {
     console.log("BY ID: ")
-    this.candidate = {idCard:this.idCard,resolutionNumber:this.resolutionNumber,name:this.name,lastname:this.lastname,party:this.party};
+    this.candidate = {
+      idCard:this.idCard,
+      resolutionNumber:this.resolutionNumber,
+      name:this.name,
+      lastname:this.lastname,
+      party:this.party
+    };
     console.log(this.candidate);
     this.candidateService.update(this.id_candidate,this.id_party||"",this.candidate).subscribe(
-      res => {
-        console.log(res)
+      data => {
+        Swal.fire(
+          'Actualizado!',
+          'El candidato ha sido actualizado correctamente',
+          'success'
+        )
+        this.ngOnInit();
+        this.router.navigate(['/dashboard/party'])
       },
       error => {
         console.log(error)
+        Swal.fire(
+          'Ups, Algo ha sucedido!',
+          'El candidato no ha sido actualizado',
+          'error'
+        )
       }
     )
   }

@@ -20,13 +20,13 @@ export class UserService {
     return this.http.get<any>(this.URL + "/" +  id);
   }
 
-  create(id_party:String, user:User): Observable<any>{
-    let url = "/role/" + id_party;
+  create(id_role:String, user:User): Observable<any>{
+    let url = "/role/" + id_role;
     return this.http.post<any>(this.URL + url, user);
   }
 
-  update(id:String, id_party:String, user:User): Observable<any>{
-    let url = "/" +  id + "/party/" + id_party;
+  update(id:String, id_role:String, user:User): Observable<any>{
+    let url = "/" +  id + "/role/" + id_role;
     return this.http.put<any>(this.URL + url,user);
   }
 

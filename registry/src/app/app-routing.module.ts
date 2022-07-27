@@ -23,6 +23,7 @@ import { TableComponent } from './pages/table/table.component';
 import { UpdateCandidateComponent } from './pages/update-candidate/update-candidate.component';
 import { UpdatePartyComponent } from './pages/update-party/update-party.component';
 import { UpdatePermissionComponent } from './pages/update-permission/update-permission.component';
+import { UpdateRegisterResultComponent } from './pages/update-register-result/update-register-result/update-register-result.component';
 import { UpdateRoleComponent } from './pages/update-role/update-role.component';
 import { UpdateTableComponent } from './pages/update-table/update-table.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
@@ -39,7 +40,7 @@ const routes: Routes = [
       // Rutas de los usuarios
       { path: 'user', component: UserComponent},
       { path: 'create-user',component:CreateUserComponent},
-      { path: 'update-user',component:UpdateUserComponent},
+      { path: 'update-user/:_id',component:UpdateUserComponent},
 
       // Rutas de los roles
       { path: 'role', component: RoleComponent},
@@ -65,7 +66,12 @@ const routes: Routes = [
       { path: 'table', component: TableComponent},
       { path: 'create-table',component:CreateTableComponent},
       { path: 'update-table/:_id',component:UpdateTableComponent},
-    
+      
+      // Rutas de los resultados
+      { path: 'result', component: ResultComponent},
+      { path: 'register-result',component:RegisterResultComponent},
+      { path: 'update-register-result/:_id',component:UpdateRegisterResultComponent},
+
       // Rutas de los reportes
       { path: 'report-tables',component:TablesComponent},
       { path: 'report-votes',component:VotesComponent},

@@ -3,13 +3,17 @@
         <h1 class="h1-semibold">Crear mesa</h1>
     </div>
     <div class="form">
-        <div class="form__section">
+        <div class="form__section-1">
+            <h2>Nombre</h2>
+            <input type="number" class="form__section-input" [(ngModel)] = "name" >
+        </div>
+        <div class="form__section-2">
             <h2>Cedulas inscritas</h2>
             <input type="number" class="form__section-input" [(ngModel)] = "numberIds" >
         </div>
         <div class="form__submit">
             <input type="submit" class="form__section-submit" value="Agregar" (click)="createTable()">
-            <input type="submit" class="form__section-submit" value="Cancelar" href="dashboard/table" >
+            <input type="submit" class="form__section-submit" value="Cancelar" routerLink="/dashboard/table" >
         </div>
     </div>
 </div>

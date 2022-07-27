@@ -10,6 +10,7 @@ import { FooterComponent } from './global/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
+import { UpdateRegisterResultComponent } from './pages/update-register-result/update-register-result/update-register-result.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AuthInterceptorService } from './interceptors/auth-interceptor.service'
     JuryHeaderComponent,
     CitizenHeaderComponent,
     FooterComponent,
-    routingComponents
+    routingComponents,
+    UpdateRegisterResultComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@
                 <tr>
                     <th>Nombre de usuario</th>
                     <th>Correo</th>
+                    <th>Rol</th>
                     <th></th>
                 </tr>
             </thead>
@@ -15,12 +16,13 @@
                 <tr *ngFor="let user of users">
                     <th>{{user.pseudonym}}</th>
                     <th>{{user.email}}</th>
+                    <th>{{user.role?.name}}</th>
                     <th>
                         <button class="table-button">
-                            <img src="assets/images/editar.png" alt="">
+                            <img src="assets/images/editar.png" alt="" (click)="update(user._id)">
                         </button>
                         <button class="table-button">
-                            <img src="assets/images/trash.png" alt="">
+                            <img src="assets/images/trash.png" alt="" (click)="delete(user._id)">
                         </button>
                     </th>
                 </tr>

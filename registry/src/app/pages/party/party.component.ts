@@ -38,7 +38,7 @@ export class PartyComponent implements OnInit {
 
   delete(id: any): void {
     Swal.fire({
-      title: 'Eliminar Permiso',
+      title: 'Eliminar Partido',
       text: 'Esta seguro que desea eliminar el partido?',
       icon: 'warning',
       showCancelButton: true,
@@ -58,9 +58,9 @@ export class PartyComponent implements OnInit {
           },
           error => {
             Swal.fire(
-              'Eliminado!',
-              'El partido ha sido eliminado correctamente',
-              'success'
+              'Ups, Algo ha sucedido!',
+              'El partido no ha sido eliminado correctamente',
+              'error'
             )
             this.ngOnInit();
           }

@@ -1,1 +1,40 @@
-<p>update-user works!</p>
+<div class="container">
+    <div class="container__title">
+        <h1 class="h1-semibold">Usuarios - Actualizar</h1>
+    </div>
+    
+    <div class="form">
+        <div class="form-input-1">
+            <h2>Nombre de usuario</h2>
+            <input type="text" class="form-input" [(ngModel)] = "pseudonym">
+        </div>
+        <div class="form-input-2">
+            <h2>Correo</h2>
+            <input type="email" class="form-input" [(ngModel)] = "email">
+        </div>
+        <div class="form-input-3">
+            <h2>Contraseña</h2>
+            <input type="password" class="form-input" [(ngModel)] = "password">
+        </div>
+        <div class="form-input-4">
+            <h2 class="h2">Rol</h2>
+            <div class="container__select">
+                <div class="container-select-arrow">
+                    <select [(ngModel)]="id_role" class="select">
+                        <option value="{{role_user._id}}">{{role_user.name}}</option>
+                        <option *ngFor="let role of roles" value="{{role._id}}">
+                            <div *ngIf="role_user.name!=role.name">
+                                {{role.name}}
+                            </div>
+                        </option>
+                    </select>
+                    <span class="select-arrow"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-submit">
+            <input type="submit" class="form__section-submit" value="Agregar" (click)="updateUser()">
+            <input type="submit" class="form__section-submit" value="Cancelar" routerLink="/dashboard/user" >
+        </div>
+    </div>
+</div>
