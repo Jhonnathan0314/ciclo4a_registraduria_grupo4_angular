@@ -4,121 +4,23 @@
 
     overflow: auto;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 40px 100px 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-
     justify-items: center;
 }
 
 .container__title {
     text-align: center;
-    grid-area: 1 / 1 / 2 / 4;
     margin: 0;
 }
 
-.container__select {
-    grid-area: 2 / 1 / 3 / 2;
-    justify-content: left;
-    margin: 0;   
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: right;
-}
-
-.container-select-arrow {
-    position: relative;
-}
-
-.select {
-    padding: 10px 70px 10px 5px;
-    background: #84a9cc;
-    color: #fff;
-    font-size: 18px;
-    border: none;
-    border-radius: 15px;
-}
-
-.select-arrow {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    background: #12477d;
-    height: 100%;
-    width: 2rem;
-    pointer-events: none;
-    border-radius: 0 15px 15px 0;
-}
-
-.select-arrow::before, .select-arrow::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.select-arrow::before {
-    border-left: .35em solid transparent;
-    border-right: .35em solid transparent;
-    border-bottom: .35em solid #cadaea;
-
-    top: 35%;
-}
-
-.select-arrow::after {
-    border-left: .35em solid transparent;
-    border-right: .35em solid transparent;
-    border-top: .35em solid #cadaea;
-
-    top: 60%;
-}
-
-.container-search-bar {
-    grid-area: 2 / 2 / 3 / 4;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-
-.container-search-bar input {
-    width: 60%;
-    height: 35px;
-    border: none;
-    border-radius: 10px 0 0 10px;
-    background: #cadaea;
-    text-align: center;
-    font-size: 18px;
-    outline: none;
-    margin-left: 100px;
-    padding: 5px;
-}
-
-.container-search-bar img {
-    width: 35px;
-    border-radius: 0 10px 10px 0;
-    background: #cadaea;
-    cursor: pointer;
-    padding: 5px;
-
-    transition: background .3s;
-}
-
-.container-search-bar img:hover {
-    background: #84a9cc;
-}
-
 .container__table {
-    grid-area: 3 / 1 / 4 / 4;
+    display: flex;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+    margin-top: 30px;
+    max-height: 300px;
+    width: fit-content;
+    overflow: hidden scroll;
 }
 
 .table {

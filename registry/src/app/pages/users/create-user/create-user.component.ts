@@ -22,6 +22,7 @@ export class CreateUserComponent implements OnInit {
   constructor(private roleService:RoleService, private userService:UserService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getRoles()
   }
 
   getRoles():void{
@@ -38,16 +39,20 @@ export class CreateUserComponent implements OnInit {
       password:this.password
     }
 
-    this.userService.create(this.id_role,this.user).subscribe(
-      res => {
-        Swal.fire(
-          'Creado!',
-          'El usuario ha sido creado correctamente',
-          'success'
+    this.userService.create(this.user).subscribe(
+      res => {  
+        this.userService.addRole(res._id!, this.id_role, this.user).subscribe(
+          data => {
+            Swal.fire(
+              'Creado!',
+              'El usuario ha sido creado correctamente',
+              'success'
+            )
+            this.ngOnInit();
+            this.router.navigate(['/pages/users/user/'])
+            console.log(res)
+          }
         )
-        this.ngOnInit();
-        this.router.navigate(['/pages/users/user/'])
-        console.log(res)
       },
       error => {
         Swal.fire(

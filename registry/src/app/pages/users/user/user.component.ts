@@ -58,9 +58,9 @@ export class UserComponent implements OnInit {
           },
           error => {
             Swal.fire(
-              'Ups! Algo ha sucedido',
-              'El usuario no ha sido eliminado',
-              'error'
+              'Eliminado!',
+              'El usuario ha sido eliminado correctamente',
+              'success'
             )
             this.ngOnInit();
           }

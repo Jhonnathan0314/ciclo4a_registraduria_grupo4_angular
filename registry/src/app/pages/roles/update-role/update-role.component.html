@@ -8,15 +8,19 @@
                 <h2>Nombre</h2>
                 <input type="text" [(ngModel)]="name">
             </div>
+            <div class="form-1-input">
+                <h2>Descripcion</h2>
+                <input type="text" [(ngModel)]="description">
+            </div>
             <div class="form-submit">
-                <input type="submit" value="Crear">
+                <input type="submit" value="Guardar" (click)="updateRole()">
             </div>
         </div>
         <div class="form-2">
             <h2 class="h2">Permisos actuales</h2>
             <div class="container__select">
                 <div class="container-select-arrow">
-                    <select name="" id="" class="select">
+                    <select class="select">
                         <option value="">Permisos actuales</option>
                         <option value="">Permiso 1</option>
                         <option value="">Permiso 2</option>
@@ -41,9 +45,11 @@
                 </div>
             </div>
             <div class="form-submit">
-                <input type="submit" value="Guardar" (click)="updateRole()">
-            <input type="submit" value="Cancelar" routerLink="/pages/roles/role">
+                <input type="submit" value="Añadir">
             </div>
         </div>
+    </div>
+    <div class="form-submit center">
+        <input type="submit" value="Cancelar" routerLink="/pages/roles/role">
     </div>
 </div>

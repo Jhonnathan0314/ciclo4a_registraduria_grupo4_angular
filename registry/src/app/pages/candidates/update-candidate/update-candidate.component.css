@@ -52,6 +52,11 @@ h2 {
     border-radius: 15px;
 }
 
+.select:focus {
+    border: none;
+    outline: none;
+}
+
 .select-arrow {
     position: absolute;
     top: 0;

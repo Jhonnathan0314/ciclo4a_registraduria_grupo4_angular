@@ -19,8 +19,8 @@ export class TableService {
     return this.http.get<any>(this.URL + "/" + id);
   }
 
-  create(table:Table): Observable<any>{
-    return this.http.post<any>(this.URL ,table);
+  create(table: Table): Observable<Table>{
+    return this.http.post<Table>(this.URL, table);
   }
 
   update(id:String, table:Table): Observable<any>{

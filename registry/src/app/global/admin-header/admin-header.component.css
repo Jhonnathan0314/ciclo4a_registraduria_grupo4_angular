@@ -57,7 +57,7 @@ header {
 .nav__ul-submenu {
     position: absolute;
     background: #84a9cc;
-    width: 160%;
+    width: 100%;
     visibility: hidden;
     opacity: 0;
     transition: opacity .3s;

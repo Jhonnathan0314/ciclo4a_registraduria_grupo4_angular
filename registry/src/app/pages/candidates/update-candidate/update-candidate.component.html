@@ -9,8 +9,9 @@
             <div class="container__select">
                 <div class="container-select-arrow">
                     <select [(ngModel)]="id_party" class="select">
-                        <option value="{{candidate.party?._id}}">{{candidate.party?.name}}</option>
-                        <option *ngFor="let party of parties" value="{{party._id}}">{{party.name}}</option>
+                        <option *ngFor="let party of parties" value="{{party._id}}" [selected]= "party._id == id_party">
+                            {{party.name}}
+                        </option>
                     </select>
                     <span class="select-arrow"></span>
                 </div>

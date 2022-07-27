@@ -2,15 +2,6 @@
     <div class="container__title">
         <h1 class="h1-semibold">Resultados</h1>
     </div>
-    <div class="container__select">
-        <div class="container-select-arrow">
-            <select name="" id="" class="select">
-                <option value="">Partidos</option>
-                <option value="">Candidatos</option>
-            </select>
-            <span class="select-arrow"></span>
-        </div>
-    </div>
     <div class="container__box">
         <div class="main-row row-left" (click)="move_left()"><img src="assets/images/previous.png" alt="previous"></div>
         <div class="main-row row-right" (click)="move_right()"><img src="assets/images/next.png" alt="next"></div>
@@ -25,7 +16,7 @@
                         <div class="partido-name">{{result.table?._id}}</div>
                         <div class="partido-motto">{{result.votes}}</div>
                     </div>
-                    <div class="col-6" style="margin-left: 3vh;">
+                    <div class="icons">
                         <button class="table-button">
                             <img src="assets/images/edit.png" (click)="update(result._id)">
                         </button>

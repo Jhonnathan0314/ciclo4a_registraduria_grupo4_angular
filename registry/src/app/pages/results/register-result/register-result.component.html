@@ -2,8 +2,8 @@
     <div class="container__title">
         <h1 class="h1-semibold">Resultado - Crear</h1>
     </div>
-    <div class="form row p-grid p-fluid">
-        <div class="p-col-12 p-md-4">
+    <div class="form">
+        <div class="form-select-1">
             <h2 class="h2">Mesa</h2>
             <div class="container__select">
                 <div class="container-select-arrow">
@@ -15,23 +15,23 @@
                 </div>
             </div>
         </div>
-        <div class="p-col-12 p-md-4">
-            <h2 class="h2">Partido</h2>
+        <div class="form-select-2">
+            <h2 class="h2">Candidato</h2>
             <div class="container__select">
                 <div class="container-select-arrow">
                     <select [(ngModel)]="id_party" class="select">
-                        <option value="" disabled>Seleccione un partido</option>
+                        <option value="" disabled>Seleccione un candidato</option>
                         <option *ngFor="let party of parties" value="{{party._id}}">{{party.name}}</option>
                     </select>
                     <span class="select-arrow"></span>
                 </div>
             </div>
         </div>
-        <div class="form__section p-col-12 p-md-4">
+        <div class="form-input">
             <h2>Cantidad de votos</h2>
             <input type="text" [(ngModel)]="votes">
         </div>
-        <div class="form__submit">
+        <div class="form-submit">
             <input type="submit" class="form__section-submit" value="Agregar" (click)="registerResult()">
             <input type="submit" class="form__section-submit" value="Cancelar" routerLink="/pages/results/result" >
         </div>

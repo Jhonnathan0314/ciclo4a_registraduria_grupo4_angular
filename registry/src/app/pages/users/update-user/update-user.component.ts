@@ -34,9 +34,8 @@ export class UpdateUserComponent implements OnInit {
         this.user = res;
         this.pseudonym = this.user.pseudonym||"";
         this.email = this.user.email||"";
-        this.password = this.user.password||"";
         this.role_user = this.user.role!;
-        console.log(res.role!.name!)
+        this.id_role = this.user.role?._id!;
         this.getRoles();
       },error => {
         console.log(error);
@@ -61,15 +60,19 @@ export class UpdateUserComponent implements OnInit {
       password:this.password
     };
 
-    this.userService.update(this.id_user,this.id_role,this.user).subscribe(
+    this.userService.update(this.id_user ,this.user).subscribe(
       data => {
-        Swal.fire(
-          'Actualizado!',
-          'El usuario ha sido actualizado correctamente',
-          'success'
+        this.userService.addRole(this.id_user,this.id_role,this.user).subscribe(
+          data => {
+            Swal.fire(
+              'Actualizado!',
+              'El usuario ha sido actualizado correctamente',
+              'success'
+            )
+            this.ngOnInit();
+            this.router.navigate(['/pages/users/user'])
+          }
         )
-        this.ngOnInit();
-        this.router.navigate(['/pages/users/user'])
       },
       error => {
         console.log(error)

@@ -14,18 +14,15 @@
         </div>
         <div class="form-input-3">
             <h2>Contraseña</h2>
-            <input type="password" class="form-input" [(ngModel)] = "password">
+            <input type="password" class="form-input" [(ngModel)] = "password" placeholder="Confirme su contraseña">
         </div>
         <div class="form-input-4">
             <h2 class="h2">Rol</h2>
             <div class="container__select">
                 <div class="container-select-arrow">
-                    <select [(ngModel)]="id_role" class="select">
-                        <option value="{{role_user._id}}">{{role_user.name}}</option>
-                        <option *ngFor="let role of roles" value="{{role._id}}">
-                            <div *ngIf="role_user.name!=role.name">
+                    <select class="select">
+                        <option *ngFor="let role of roles" value="{{role._id}}" [selected]= "role._id == id_role">
                                 {{role.name}}
-                            </div>
                         </option>
                     </select>
                     <span class="select-arrow"></span>
@@ -33,7 +30,7 @@
             </div>
         </div>
         <div class="form-submit">
-            <input type="submit" class="form__section-submit" value="Agregar" (click)="updateUser()">
+            <input type="submit" class="form__section-submit" value="Guardar" (click)="updateUser()">
             <input type="submit" class="form__section-submit" value="Cancelar" routerLink="/pages/users/user" >
         </div>
     </div>

@@ -14,6 +14,7 @@ export class UpdateTableComponent implements OnInit {
   table!: Table;
   _id!: string;
   numberIds!: Number;
+  totalVotes!: Number;
 
   constructor(private tableService: TableService, private router: Router, private activeRoute: ActivatedRoute) { }
   ngOnInit(): void {
@@ -24,14 +25,16 @@ export class UpdateTableComponent implements OnInit {
     this._id = this.activeRoute.snapshot.params['_id'];
     this.tableService.findById(this._id).subscribe(
       res => {
-          this.numberIds = res.numberIds!
+          this.numberIds = res.numberIds!,
+          this.totalVotes = res.totalVotes!
       }
     )
   }
 
   updateTable(): void {
     this.table = {
-      numberIds: this.numberIds
+      numberIds: this.numberIds,
+      totalVotes: this.totalVotes
     }
     this.tableService.update(this._id, this.table).subscribe(
       data => {

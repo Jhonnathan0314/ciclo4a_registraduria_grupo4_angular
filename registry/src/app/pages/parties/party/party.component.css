@@ -113,5 +113,13 @@
     border-radius: 15px;
     background-color: #cadaea;
     margin: 20px 10px 15px 10px;
+}
 
+.icons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icons button {
+    cursor: pointer;
 }

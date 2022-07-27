@@ -9,15 +9,21 @@ import Swal from 'sweetalert2';
   styleUrls: ['./create-role.component.css']
 })
 export class CreateRoleComponent implements OnInit {
+  
   role!: Role;
   name!: string;
+  description!: string;
+
   constructor(private roleService: RoleService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   createRole(){
-    this.role = {name:this.name}
+    this.role = {
+      name:this.name,
+      description: this.description
+    }
     
     this.roleService.create(this.role).subscribe(
       res=>{

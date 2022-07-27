@@ -18,7 +18,8 @@ export class CreateTableComponent implements OnInit {
   }
   createTable(): void{
     this.table = {
-      numberIds:this.numberIds
+      numberIds: this.numberIds,
+      totalVotes: 0
     }
     this.tableService.create(this.table).subscribe(
       res => {

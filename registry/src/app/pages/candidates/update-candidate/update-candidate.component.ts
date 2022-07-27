@@ -14,7 +14,6 @@ import Swal from 'sweetalert2';
 })
 export class UpdateCandidateComponent implements OnInit {
   candidate!: Candidate;
-  allParties !: Party[];
   parties !: Party[] ;
   idCard: string = "";
   resolutionNumber: string = "";
@@ -39,11 +38,8 @@ export class UpdateCandidateComponent implements OnInit {
         this.resolutionNumber = this.candidate.resolutionNumber||"";
         this.name = this.candidate.name||"";
         this.lastname = this.candidate.lastname||"";
-        console.log(this.candidate.party)
-        this.parties.push(this.candidate.party!)
+        this.id_party = this.candidate.party?._id!;
         this.getParties();
-        console.log(this.resolutionNumber)
-        console.log(this.candidate);
       },error => {
         console.log(error);
       }
@@ -52,16 +48,7 @@ export class UpdateCandidateComponent implements OnInit {
   getParties():void{
     this.partyService.findAll().subscribe(
       res => {
-        this.allParties = res;
-        this.allParties.forEach(
-          party => {
-            console.log(party)
-          if(this.candidate.party != party){
-            console.log(party)
-            this.parties.push(party)
-          }
-        })
-        console.log(this.parties)
+        this.parties = res;
       },
       error => {
         console.log(error)

@@ -1,8 +1,6 @@
 .container {
     height: 100vh;
     padding-top: 90px;
-
-    overflow: auto;
 }
 
 .container__title {
@@ -10,11 +8,14 @@
 }
 
 .container__table {
-    padding: 20px 40px;
-    margin-bottom: 100px;
-
     display: flex;
+    margin: auto;
+    align-content: center;
     justify-content: center;
+    margin-top: 30px;
+    max-height: 300px;
+    width: fit-content;
+    overflow: hidden scroll;
 }
 
 .thead th {
