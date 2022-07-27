@@ -52,7 +52,6 @@ export class UpdateCandidateComponent implements OnInit {
   getParties():void{
     this.partyService.findAll().subscribe(
       res => {
-        console.log("hola")
         this.allParties = res;
         this.allParties.forEach(
           party => {
@@ -70,7 +69,6 @@ export class UpdateCandidateComponent implements OnInit {
     )
   }
   updateCandidate(): void {
-    console.log("BY ID: ")
     this.candidate = {
       idCard:this.idCard,
       resolutionNumber:this.resolutionNumber,
@@ -87,7 +85,7 @@ export class UpdateCandidateComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/party'])
+        this.router.navigate(['/pages/candidates/candidate'])
       },
       error => {
         console.log(error)

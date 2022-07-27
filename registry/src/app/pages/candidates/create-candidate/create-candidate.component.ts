@@ -47,7 +47,7 @@ export class CreateCandidateComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/candidate/'])
+        this.router.navigate(['/pages/candidates/candidate'])
         console.log(res)
       },
       error => {

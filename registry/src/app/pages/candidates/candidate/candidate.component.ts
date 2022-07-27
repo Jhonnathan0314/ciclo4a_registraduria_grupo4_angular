@@ -48,13 +48,13 @@ export class CandidateComponent implements OnInit {
   }
 
   update(id: any): void {
-    this.router.navigate(['/dashboard/update-candidate/' + id])
+    this.router.navigate(['/pages/candidates/update-candidate/' + id])
   }
 
   delete(id: any): void {
     Swal.fire({
       title: 'Eliminar Permiso',
-      text: 'Estas seguro que desea eliminar el permiso?',
+      text: 'Estas seguro que desea eliminar el candidato?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

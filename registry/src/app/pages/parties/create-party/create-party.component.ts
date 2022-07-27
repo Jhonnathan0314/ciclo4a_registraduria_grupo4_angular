@@ -33,7 +33,7 @@ export class CreatePartyComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/party'])
+        this.router.navigate(['/pages/parties/party'])
         console.log(res)
       },
       error => {

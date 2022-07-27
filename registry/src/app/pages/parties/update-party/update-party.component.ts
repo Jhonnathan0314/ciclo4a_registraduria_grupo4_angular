@@ -44,7 +44,7 @@ export class UpdatePartyComponent implements OnInit {
           'success'
         )
         this.ngOnInit();
-        this.router.navigate(['/dashboard/party'])
+        this.router.navigate(['/pages/parties/party'])
       },
       error => {
         console.log(error)
