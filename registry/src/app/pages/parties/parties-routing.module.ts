@@ -14,7 +14,7 @@ const routes: Routes = [
     component: CreatePartyComponent
   },
   {
-    path: 'update',
+    path: 'update/:_id',
     component: UpdatePartyComponent
   }
 ];

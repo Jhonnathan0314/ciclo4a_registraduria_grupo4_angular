@@ -14,7 +14,7 @@ const routes: Routes = [
     component: CreateCandidateComponent
   },
   {
-    path: 'update',
+    path: 'update/:_id',
     component: UpdateCandidateComponent
   }
 ];

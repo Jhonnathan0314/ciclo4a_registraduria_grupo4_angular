@@ -14,7 +14,7 @@ const routes: Routes = [
     component: CreatePermissionComponent
   },
   {
-    path: 'update',
+    path: 'update/:_id',
     component: UpdatePermissionComponent
   }
 ];

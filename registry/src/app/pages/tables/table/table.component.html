@@ -7,14 +7,14 @@
         <table class="table">
             <thead class="thead">
                 <tr>
-                    <th>Numero de mesa</th>
+                    <th>Número de mesa</th>
                     <th>Cedulas registradas</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody class="tbody">
                 <tr *ngFor="let table of tables">
-                    <th>{{table.name}}</th>
+                    <th>{{table._id}}</th>
                     <th>{{table.numberIds}}</th>
                     <th>
                         <button class="table-button">

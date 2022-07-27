@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
 export class CreateTableComponent implements OnInit {
 
   table!:Table;
-  name!: string;
   numberIds!: Number;
   constructor(private tableService:TableService, private router: Router ) { }
 
@@ -19,7 +18,6 @@ export class CreateTableComponent implements OnInit {
   }
   createTable(): void{
     this.table = {
-      name:this.name,
       numberIds:this.numberIds
     }
     this.tableService.create(this.table).subscribe(

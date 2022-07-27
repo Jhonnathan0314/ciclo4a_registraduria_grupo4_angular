@@ -13,7 +13,6 @@ export class UpdateTableComponent implements OnInit {
 
   table!: Table;
   _id!: string;
-  name!: string;
   numberIds!: Number;
 
   constructor(private tableService: TableService, private router: Router, private activeRoute: ActivatedRoute) { }
@@ -25,7 +24,6 @@ export class UpdateTableComponent implements OnInit {
     this._id = this.activeRoute.snapshot.params['_id'];
     this.tableService.findById(this._id).subscribe(
       res => {
-        this.name = res.name!,
           this.numberIds = res.numberIds!
       }
     )
@@ -33,7 +31,6 @@ export class UpdateTableComponent implements OnInit {
 
   updateTable(): void {
     this.table = {
-      name: this.name,
       numberIds: this.numberIds
     }
     this.tableService.update(this._id, this.table).subscribe(

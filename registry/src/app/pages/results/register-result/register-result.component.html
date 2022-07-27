@@ -9,7 +9,7 @@
                 <div class="container-select-arrow">
                     <select [(ngModel)]="id_table" class="select">
                         <option value="" disabled>Seleccione una mesa</option>
-                        <option *ngFor="let table of tables" value="{{table._id}}">{{table.name}}</option>
+                        <option *ngFor="let table of tables" value="{{table._id}}">{{table._id}}</option>
                     </select>
                     <span class="select-arrow"></span>
                 </div>
