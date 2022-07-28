@@ -9,6 +9,7 @@ import { Result } from 'src/app/models/result.model';
 export class ResultService {
 
   URL = "/result";
+  
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<any>{
@@ -21,7 +22,6 @@ export class ResultService {
 
   create(id_table:String, id_candidate:String, result:Result): Observable<any>{
     let url = "/table/" + id_table + "/candidate/" + id_candidate;
-    console.log(this.URL + url)
     return this.http.post<any>(this.URL + url, result);
   }
 

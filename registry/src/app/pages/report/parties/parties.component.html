@@ -4,18 +4,16 @@
     </div>
     <div class="container__select">
         <div class="container-select-arrow">
-            <select name="" id="" class="select">
-                <option value="">Todas las mesas</option>
-                <option value="">Mesa 1</option>
-                <option value="">Mesa 2</option>
+            <select [(ngModel)]="id_table" class="select">
+                <option value="" disabled>Seleccione una mesa</option>
+                <option *ngFor="let table of tables" value="{{table._id}}">{{table._id}}</option>
             </select>
             <span class="select-arrow"></span>
         </div>
         <div class="container-select-arrow">
-            <select name="" id="" class="select">
-                <option value="">Todos los partidos</option>
-                <option value="">Partido 1</option>
-                <option value="">Partido 2</option>
+            <select [(ngModel)]="name_party" (ngModelChange)="ngOnInit()" class="select">
+                <option value="" disabled>Seleccione un partido</option>
+                <option *ngFor="let party of parties" value="{{party.name}}">{{party.name}}</option>
             </select>
             <span class="select-arrow"></span>
         </div>
@@ -25,15 +23,15 @@
             <thead class="thead">
                 <tr>
                     <th>Partido</th>
-                    <th>Mesa</th>
+                    <!-- <th>Mesa</th> -->
                     <th>Votos</th>
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr>
-                    <th>Partido 1</th>
-                    <th>Mesa 1</th>
-                    <th>Votos 1</th>
+                <tr *ngFor="let reportParty of reportParties" >
+                    <th>{{reportParty.party}}</th>
+                    <!-- <th><div *ngIf="name_party==reportParty.party">{{reportParty.party}}</div></th> -->
+                    <th>{{reportParty.votes}}</th>
                 </tr>
             </tbody>
         </table>

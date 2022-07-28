@@ -21,6 +21,7 @@ export class RegisterResultComponent implements OnInit {
   votes!: Number;
   id_candidate!:string;
   id_table!:string;
+
   constructor(private resultService:ResultService, private candidateService:CandidateService,private tableService:TableService, private router: Router) { }
 
   ngOnInit(): void {
@@ -35,6 +36,7 @@ export class RegisterResultComponent implements OnInit {
       }
     )
   }
+  
   getTables():void{
     this.tableService.findAll().subscribe(
       res=>{
@@ -42,12 +44,13 @@ export class RegisterResultComponent implements OnInit {
       }
     )
   }
+
   registerResult(): void{
     this.result={
-      votes:this.votes,
+      votes: this.votes,
     }
 
-    this.resultService.create(this.id_table,this.id_candidate,this.result).subscribe(
+    this.resultService.create(this.id_table, this.id_candidate, this.result).subscribe(
       res => {
         Swal.fire(
           'Creado!',
@@ -60,7 +63,7 @@ export class RegisterResultComponent implements OnInit {
       },
       error => {
         Swal.fire(
-          ' Ups! Algo falló',
+          'Ups! Algo falló',
           'El resultado no ha sido creado, ',
           'error'
         )

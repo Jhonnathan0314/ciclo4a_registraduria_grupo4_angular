@@ -12,10 +12,10 @@
                 </tr>
             </thead>
             <tbody class="tbody">
-                <tr>
-                    <th>Partido 1</th>
-                    <th>Porcentaje 1</th>
-                    <th>Votos 1</th>
+                <tr *ngFor="let percentage of percentages">
+                    <th>{{percentage.party}}</th>
+                    <th>{{percentage.percentage}} %</th>
+                    <th>{{percentage.votes}}</th>
                 </tr>
             </tbody>
         </table>
