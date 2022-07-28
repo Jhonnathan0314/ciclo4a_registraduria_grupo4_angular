@@ -1,6 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  user!:User;
   username: string = "";
   email: string = "";
   password: string = "";
@@ -19,12 +23,17 @@ export class RegisterComponent implements OnInit {
 
   reg_exp_email: RegExp = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/;
 
-  constructor(@Inject(DOCUMENT) private document: Document, private router: Router) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private userService:UserService,private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  validateForm(): void {
+  registerUser(): void {
+    this.user = {
+      pseudonym: this.username,
+      email:this.email,
+      password:this.password,
+    }
     let span = this.document.getElementById("error");
     this.class_error = "hide";
     if(this.password != this.repeat_password){
@@ -46,6 +55,27 @@ export class RegisterComponent implements OnInit {
     if(this.class_error != "error"){
       this.router.navigate(['/login']);
     }
+
+    this.userService.create(this.user).subscribe(
+      res=>{
+        Swal.fire(
+          'Su usuario ha sido creado!',
+          'Ahora, por favor inicie sesión',
+          'success'
+        )
+        this.ngOnInit();
+        this.router.navigate(['/login'])
+      },
+      error=>{
+        Swal.fire(
+          'Ups! Algo ha fallado',
+          'Por favor, vuela a realizar el registro',
+          'error'
+        )
+        this.ngOnInit();
+        this.router.navigate(['/secuity/register'])
+      }
+    );
   }
 
 }

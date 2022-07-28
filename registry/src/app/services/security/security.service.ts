@@ -30,6 +30,7 @@ export class SecurityService {
     this.setToken("");
   }
 
+
   /**
   * Guarda los datos tales como el identificador
   * y token del usuario en una base de datos

@@ -27,7 +27,7 @@
             <input type="password" class="form__section-input" [(ngModel)]="repeat_password">
         </div>
         <div class="form__submit">
-            <input type="submit" class="form__section-submit" value="Registrar" (click)="validateForm()">
+            <input type="submit" class="form__section-submit" value="Registrar" (click)="registerUser()">
         </div>
         <span [class]="class_error" id="error">{{error_message}}</span>
         <div class="form__ref"><a href="login">Ingresar ahora</a></div>
