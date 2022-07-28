@@ -13,9 +13,9 @@
             </thead>
             <tbody class="tbody">
                 <tr *ngFor="let reportTable of reportTables">
-                    <th>{{reportTable.table?._id}}</th>
-                    <th>{{reportTable.table?.numberIds}}</th>
-                    <th>{{reportTable.table?.totalVotes}}</th>
+                    <th>{{reportTable?._id}}</th>
+                    <th>{{reportTable?.numberIds}}</th>
+                    <th>{{reportTable?.totalVotes}}</th>
                 </tr>
             </tbody>
         </table>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Result } from 'src/app/models/result.model';
-import { ReportService } from 'src/app/services/report/report.service';
+import { Table } from 'src/app/models/table.model';
+import { TableService } from 'src/app/services/table/table.service';
 
 @Component({
   selector: 'app-tables',
@@ -9,16 +9,16 @@ import { ReportService } from 'src/app/services/report/report.service';
 })
 export class TablesComponent implements OnInit {
 
-  reportTables!: Result[];
+  reportTables!: Table[];
 
-  constructor(private reportService: ReportService) { }
+  constructor(private tableService: TableService) { }
 
   ngOnInit(): void {
     this.getReportTables();
   }
 
   getReportTables(){
-    this.reportService.findReport().subscribe(
+    this.tableService.findAll().subscribe(
         res=>{
             this.reportTables = res;
         }
