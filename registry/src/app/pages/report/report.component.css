@@ -100,3 +100,9 @@
     font-size: 18px;
     background: #cadaea;
 }
+
+.progress-bar {
+    width: 65%;
+    margin: auto;
+    margin-top: 130px;
+}

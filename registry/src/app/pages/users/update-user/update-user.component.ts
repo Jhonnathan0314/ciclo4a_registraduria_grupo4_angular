@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Role } from 'src/app/models/role.model';
 import { User } from 'src/app/models/user.model';
@@ -12,15 +13,20 @@ import Swal from 'sweetalert2';
   styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
+
   roles!: Role[];
   user!: User;
+  old_user!: User;
   pseudonym!: string;
   email!: string;
   password!: string;
   role_user!: Role;
-  id_role!:string;
   id_user!:any;
-  constructor(private roleService:RoleService, private userService:UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
+
+  id_role!:string;
+  id_selected!: string;
+
+  constructor(private roleService:RoleService, private userService:UserService, private router: Router, private activatedRoute: ActivatedRoute, @Inject(DOCUMENT) document: Document) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(id_candidate => {
@@ -28,6 +34,7 @@ export class UpdateUserComponent implements OnInit {
       this.getUser();
     });
   }
+
   getUser(){
     this.userService.findById(this.id_user).subscribe( 
       res=>{
@@ -42,6 +49,7 @@ export class UpdateUserComponent implements OnInit {
       }
     )
   }
+
   getRoles():void{
     this.roleService.findAll().subscribe(
       res => {
@@ -52,8 +60,12 @@ export class UpdateUserComponent implements OnInit {
       }
     )
   }
+
+  changeSelect(): void {
+    this.id_role = this.id_selected;
+  }
+
   updateUser(): void {
-    console.log("BY ID: ")
     this.user = {
       pseudonym:this.pseudonym,
       email:this.email,
@@ -62,7 +74,7 @@ export class UpdateUserComponent implements OnInit {
 
     this.userService.update(this.id_user ,this.user).subscribe(
       data => {
-        this.userService.addRole(this.id_user,this.id_role,this.user).subscribe(
+        this.userService.addRole(this.id_user,this.id_role).subscribe(
           data => {
             Swal.fire(
               'Actualizado!',

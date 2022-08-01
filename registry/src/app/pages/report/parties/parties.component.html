@@ -2,7 +2,8 @@
     <div class="container__title">
         <h1 class="h1-semibold">Reportes - Partido</h1>
     </div>
-    <div class="container__select">
+    <mat-progress-bar mode="indeterminate" class="progress-bar" *ngIf="isLoading"></mat-progress-bar>
+    <div class="container__select" *ngIf="!isLoading">
         <div class="container-select-arrow">
             <select [(ngModel)]="id_table" class="select">
                 <option value="" disabled>Seleccione una mesa</option>
@@ -18,7 +19,7 @@
             <span class="select-arrow"></span>
         </div>
     </div>
-    <div class="container__table">
+    <div class="container__table" *ngIf="!isLoading">
         <table class="table">
             <thead class="thead">
                 <tr>

@@ -8,20 +8,20 @@ import { Percentage } from 'src/app/models/percentage.model';
 })
 export class ReportService {
 
-  URL = "/report";
   constructor(private http: HttpClient) { }
 
   findReport(): Observable<any> {
-    return this.http.put<any>(this.URL, {});
+    let URL = "/report";
+    return this.http.put<any>(URL, {});
   }
 
   findPartiesReport(): Observable<any> {
-    this.URL = this.URL + "/parties"
-    return this.http.get<any>(this.URL);
+    let URL = "/report/parties"
+    return this.http.get<any>(URL);
   }
 
   findPercentages(): Observable<Percentage[]>{
-    this.URL = this.URL + "/percentage"
-    return this.http.get<Percentage[]>(this.URL);
+    let URL = "/report/percentage"
+    return this.http.get<Percentage[]>(URL);
   }
 }

@@ -2,7 +2,8 @@
     <div class="container__title">
         <h1 class="h1-semibold">Resultados</h1>
     </div>
-    <div class="container__box">
+    <mat-progress-bar mode="indeterminate" class="progress-bar" *ngIf="isLoading"></mat-progress-bar>
+    <div class="container__box" *ngIf="!isLoading">
         <div class="main-row row-left" (click)="move_left()"><img src="assets/images/previous.png" alt="previous"></div>
         <div class="main-row row-right" (click)="move_right()"><img src="assets/images/next.png" alt="next"></div>
         <div class="container__content-hide" id="lateralmove">

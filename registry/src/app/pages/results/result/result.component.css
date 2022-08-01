@@ -37,8 +37,8 @@
 
 .container__box-partido {
     padding: 15px;
-    min-width: 250px;
-    min-height: 250px;
+    width: 280px;
+    height: 280px;
     margin-top: 5px;
     margin-left: 40px;
     box-shadow: 0px 1px 6px #000;
@@ -121,4 +121,10 @@
 
 .icons button {
     cursor: pointer;
+}
+
+.progress-bar {
+    width: 65%;
+    margin: auto;
+    margin-top: 130px;
 }

@@ -6,6 +6,7 @@ import { RoleComponent } from './role/role.component';
 import { CreateRoleComponent } from './create-role/create-role.component';
 import { UpdateRoleComponent } from './update-role/update-role.component';
 import { FormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RolesRoutingModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ]
 })
 export class RolesModule { }

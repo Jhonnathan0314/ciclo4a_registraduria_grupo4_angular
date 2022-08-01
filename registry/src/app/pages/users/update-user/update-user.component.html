@@ -20,7 +20,7 @@
             <h2 class="h2">Rol</h2>
             <div class="container__select">
                 <div class="container-select-arrow">
-                    <select class="select">
+                    <select class="select" id="select" [(ngModel)]="id_selected" (ngModelChange)="changeSelect()">
                         <option *ngFor="let role of roles" value="{{role._id}}" [selected]= "role._id == id_role">
                                 {{role.name}}
                         </option>

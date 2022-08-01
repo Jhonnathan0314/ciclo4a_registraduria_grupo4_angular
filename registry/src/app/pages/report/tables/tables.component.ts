@@ -11,6 +11,9 @@ export class TablesComponent implements OnInit {
 
   reportTables!: Table[];
 
+  isLoading: boolean = false;
+
+
   constructor(private tableService: TableService) { }
 
   ngOnInit(): void {
@@ -18,9 +21,11 @@ export class TablesComponent implements OnInit {
   }
 
   getReportTables(){
+    this.isLoading = true;
     this.tableService.findAll().subscribe(
         res=>{
-            this.reportTables = res;
+            this.reportTables = res
+            this.isLoading = false
         }
 
     )

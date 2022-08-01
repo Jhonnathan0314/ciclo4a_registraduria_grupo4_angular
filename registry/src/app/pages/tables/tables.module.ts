@@ -6,6 +6,7 @@ import { TableComponent } from './table/table.component';
 import { CreateTableComponent } from './create-table/create-table.component';
 import { UpdateTableComponent } from './update-table/update-table.component';
 import { FormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     TablesRoutingModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ]
 })
 export class TablesModule { }

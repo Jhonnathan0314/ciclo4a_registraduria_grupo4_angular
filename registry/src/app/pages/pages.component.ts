@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Role } from '../models/role.model';
 import { SecurityService } from '../services/security/security.service';
@@ -10,44 +11,23 @@ import { UserService } from '../services/user/user.service';
   styleUrls: ['./pages.component.css']
 })
 export class PagesComponent {
-  role_name!: string;    
 
-  constructor(private userService: UserService, private securityService: SecurityService, private router: Router) { }
+  role_name: string = localStorage.getItem('role')?.toString()!; 
+  firstLogin: boolean = true;
+
+  constructor(private userService: UserService, private securityService: SecurityService, private router: Router, @Inject(DOCUMENT) document: Document) { }
 
   ngOnInit(): void {
     this.isLogged();
-    this.getRole();
   }
 
   isLogged(): void {
-    if(this.securityService.getUser() == undefined || this.securityService.getToken() == undefined){
+    if(this.securityService.getUser() == undefined || this.securityService.getToken() == undefined || this.securityService.getRoleName() == undefined){
       this.router.navigate(['/security/login']);
     }
-  }
-
-  findAll(): void {
-    let user: string = this.securityService.getUser();
-    this.userService.findAll().subscribe(
-      data => {
-        console.log(data)
-      },
-      error => {
-        console.log(error)
-      }
-    )
-  }
-
-  getRole(): void {
-    console.log("BY ID: ")
-    let user: string = this.securityService.getUser();
-    this.userService.findById(user).subscribe(
-      res => {
-        this.role_name = res.role!.name!;
-        console.log(this.role_name)
-      },
-      error => {
-        console.log(error)
-      }
-    )
+    if(this.role_name == undefined && this.firstLogin) {
+      this.role_name = localStorage.getItem('role')?.toString()!; 
+      this.firstLogin = false;
+    }
   }
 }

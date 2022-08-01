@@ -44,8 +44,6 @@ export class LoginComponent implements OnInit {
       }
       this.securityService.login(user_data).subscribe(
         data => {
-          console.log(data),
-          this.router.navigate(['/pages/dashboard']),
           this.securityService.saveSessionData(data)
       },
         error => {
@@ -60,7 +58,6 @@ export class LoginComponent implements OnInit {
   validateForm(): boolean {
     if (!this.reg_exp_email.test(this.email)) {
       this.class_error = "error";
-      console.log("email error: " + this.email)
       return false;
     }
     return true;

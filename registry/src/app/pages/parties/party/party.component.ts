@@ -13,6 +13,7 @@ import Swal from'sweetalert2';
 export class PartyComponent implements OnInit {
 
   parties!: Party[];
+  isLoading: boolean = false;
 
   constructor(@Inject(DOCUMENT) private document: Document, private partyService:PartyService, private router: Router ) { }
 
@@ -21,14 +22,15 @@ export class PartyComponent implements OnInit {
   }
 
   getParties(){
+    this.isLoading = true;
     this.partyService.findAll().subscribe(
       res =>{
         this.parties = res;
+        this.isLoading = false;
       }, 
       error =>{
         console.error(error);
       } 
-
     )
   }
 

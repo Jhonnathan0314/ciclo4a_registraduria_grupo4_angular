@@ -6,6 +6,7 @@ import { PermissionComponent } from './permission/permission.component';
 import { CreatePermissionComponent } from './create-permission/create-permission.component';
 import { UpdatePermissionComponent } from './update-permission/update-permission.component';
 import { FormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PermissionsRoutingModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ]
 })
 export class PermissionsModule { }

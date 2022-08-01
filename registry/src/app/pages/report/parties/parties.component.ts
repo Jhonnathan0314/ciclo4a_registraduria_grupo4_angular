@@ -21,12 +21,15 @@ export class PartiesComponent implements OnInit {
   name_party!:string;
   id_table!:string;
 
-  constructor(private reportService: ReportService, private partyService: PartyService, private tableService: TableService, private router: Router) { }
+  isLoading: boolean = false;
 
-  ngOnInit(): void {
+  constructor(private reportService: ReportService, private partyService: PartyService, private tableService: TableService, private router: Router) {
     this.getTables();
     this.getParties();
-    this.getPercentages();
+   }
+
+  ngOnInit(): void {
+    this.getReport();
   }
 
   getParties():void{
@@ -45,11 +48,12 @@ export class PartiesComponent implements OnInit {
     )
   }
 
-  getPercentages(){
+  getReport(){
+    this.isLoading = true;
     this.reportService.findPartiesReport().subscribe(
         res => {
-            this.reportParties = res;
-            console.log(res)
+            this.reportParties = res,
+            this.isLoading = false
         }
     )
   }

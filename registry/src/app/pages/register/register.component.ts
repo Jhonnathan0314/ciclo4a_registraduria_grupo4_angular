@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent implements OnInit {
 
-  user!:User;
+  user!: User;
   username: string = "";
   email: string = "";
   password: string = "";
@@ -23,59 +23,75 @@ export class RegisterComponent implements OnInit {
 
   reg_exp_email: RegExp = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/;
 
-  constructor(@Inject(DOCUMENT) private document: Document, private userService:UserService,private router: Router) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   registerUser(): void {
-    this.user = {
-      pseudonym: this.username,
-      email:this.email,
-      password:this.password,
+    if (this.validateForm()) {
+      this.user = {
+        pseudonym: this.username,
+        email: this.email,
+        password: this.password,
+      }
+      this.userService.create(this.user).subscribe(
+        res => {
+          this.userService.defaultRole(res._id!).subscribe(
+            res => {
+              Swal.fire(
+                'Su usuario ha sido creado!',
+                'Ahora, por favor inicie sesión',
+                'success'
+              )
+              this.router.navigate(['/security/login'])
+            },
+            error => {
+              console.log(error)
+            }
+          )
+        },
+        error => {
+          console.log(error)
+          Swal.fire(
+            'Ups! Algo ha fallado',
+            'Por favor, vuela a realizar el registro',
+            'error'
+          )
+          this.ngOnInit();
+        }
+      );
     }
+  }
+
+  validateForm(): boolean {
     let span = this.document.getElementById("error");
     this.class_error = "hide";
-    if(this.password != this.repeat_password){
+    if (this.password != this.repeat_password) {
       this.class_error = "error";
       this.error_message = "Las contraseñas no coinciden";
+      return false;
     }
-    if(this.password.length < 8) {
+    if (this.password.length < 8) {
       this.class_error = "error";
       this.error_message = "La contraseña debe tener minimo 8 caracteres alfanumericos";
+      return false;
     }
-    if(!this.reg_exp_email.test(this.email)){
+    if (!this.reg_exp_email.test(this.email)) {
       this.class_error = "error";
       this.error_message = "Email invalido";
+      return false;
     }
-    if(this.username.length < 4){
+    if (this.username.length < 4) {
       this.class_error = "error";
       this.error_message = "Nombre de usuario invalido";
+      return false;
     }
-    if(this.class_error != "error"){
-      this.router.navigate(['/login']);
-    }
-
-    this.userService.create(this.user).subscribe(
-      res=>{
-        Swal.fire(
-          'Su usuario ha sido creado!',
-          'Ahora, por favor inicie sesión',
-          'success'
-        )
-        this.ngOnInit();
-        this.router.navigate(['/login'])
-      },
-      error=>{
-        Swal.fire(
-          'Ups! Algo ha fallado',
-          'Por favor, vuela a realizar el registro',
-          'error'
-        )
-        this.ngOnInit();
-        this.router.navigate(['/secuity/register'])
-      }
-    );
+    // if (this.class_error != "error") {
+    //   this.router.navigate(['/login']);
+    //   return false;
+    // }
+    return true;
   }
 
 }

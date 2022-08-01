@@ -40,3 +40,9 @@
 .table-button img {
     width: 26px;
 }
+
+.progress-bar {
+    width: 65%;
+    margin: auto;
+    margin-top: 130px;
+}

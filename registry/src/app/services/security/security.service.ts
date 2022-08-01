@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { environment } from 'src/environments/environment';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,11 @@ export class SecurityService {
 
   user_id: string = localStorage.getItem("user_id")?.toString()!;
   token: string = localStorage.getItem("token")?.toString()!;
+  role_name: string = localStorage.getItem("role")?.toString()!;
 
-  constructor(private http: HttpClient, private router: Router) {
+  user!: User;
+
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) {
     this.checkActualSession();
   }
 
@@ -26,8 +30,10 @@ export class SecurityService {
   logout(): void {
     localStorage.removeItem('user_id');
     localStorage.removeItem('token');
+    localStorage.removeItem('role')
     this.setUser("");
     this.setToken("");
+    this.setRoleName("");
   }
 
 
@@ -42,6 +48,17 @@ export class SecurityService {
   saveSessionData(session_data: any): void {
     localStorage.setItem('user_id', session_data.user_id);
     localStorage.setItem('token', session_data.token);
+    this.userService.findById(session_data.user_id).subscribe({
+      next: (data) => {
+        this.user = data,
+        localStorage.setItem('role', this.user.role?.name!),
+        this.setRoleName(this.user.role?.name!),
+        this.router.navigate(['/pages/dashboard'])
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
     this.setUser(session_data.user_id);
     this.setToken(session_data.token);
   }
@@ -53,10 +70,11 @@ export class SecurityService {
   checkActualSession(): void {
     let actualUser = this.getUser();
     let actualToken = this.getToken();
-    if (actualUser != undefined && actualToken != undefined) {
+    let actualRole = this.getRoleName();
+    if (actualUser != undefined && actualToken != undefined && actualRole != undefined) {
       this.setUser(actualUser);
       this.setToken(actualToken);
-      // this.router.navigate(['dashboard']);
+      this.setRoleName(actualRole);
     }
   }
 
@@ -67,7 +85,8 @@ export class SecurityService {
   sessionExist(): boolean {
     let actualUser = this.getUser();
     let actualToken = this.getToken();
-    return (actualUser != "" && actualToken != "") ? true : false;
+    let actualRole = this.getRoleName();
+    return (actualUser != "" && actualToken != "" && actualRole != "") ? true : false;
   }
 
   setUser(user_id: string): void {
@@ -84,6 +103,14 @@ export class SecurityService {
 
   getToken(): string {
     return this.token;
+  }
+
+  setRoleName(role: string): void {
+    this.role_name = role;
+  }
+
+  getRoleName(): string {
+    return this.role_name;
   }
 
 }

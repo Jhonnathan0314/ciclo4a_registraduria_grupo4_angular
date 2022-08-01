@@ -2,7 +2,8 @@
     <div class="container__title">
         <h1 class="h1-semibold">Reportes - Mesas</h1>
     </div>
-    <div class="container__table">
+    <mat-progress-bar mode="indeterminate" class="progress-bar" *ngIf="isLoading"></mat-progress-bar>
+    <div class="container__table" *ngIf="!isLoading">
         <table class="table">
             <thead class="thead">
                 <tr>

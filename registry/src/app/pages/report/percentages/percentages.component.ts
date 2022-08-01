@@ -11,6 +11,8 @@ export class PercentagesComponent implements OnInit {
 
     percentages!: Percentage[];
 
+    isLoading: boolean = false;
+
     constructor(private reportService: ReportService) { }
 
     ngOnInit() {
@@ -18,11 +20,11 @@ export class PercentagesComponent implements OnInit {
     }
 
     getPercentages() {
+        this.isLoading = true;
         this.reportService.findPercentages().subscribe(
             res => {
-                this.percentages = res
-                console.log(this.percentages)
-            },
+                this.percentages = res,
+                this.isLoading = false;            },
             error => {
                 console.log(error)
             }

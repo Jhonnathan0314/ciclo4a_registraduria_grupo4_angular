@@ -15,14 +15,16 @@ export class CandidateComponent implements OnInit {
   candidates!: Candidate[];    
   parties!: Party[];
   filterParty!: Party;
+
+  isLoading: boolean = false;
+
   constructor(private candidateService: CandidateService,private partyService: PartyService, private router: Router) { }
 
   ngOnInit(): void {
-    
     this.getParties();
-    console.log(this.parties)
     this.getCandidates();
   }
+
   getParties(): void {
     this.partyService.findAll().subscribe(
       res => {
@@ -34,12 +36,13 @@ export class CandidateComponent implements OnInit {
     )
   }
  
-
   getCandidates(): void {
+    this.isLoading = true;
     this.candidateService.findAll().subscribe(
       res => {
         console.log(res)
         this.candidates = res;
+        this.isLoading = false;
       },
       error => {
         console.log(error)

@@ -12,19 +12,21 @@ import Swal from 'sweetalert2';
 })
 export class UserComponent implements OnInit {
   
-  users!: User[];    
+  users!: User[];   
+  isLoading: boolean = false;
+   
   constructor(private userService: UserService,private roleService: RoleService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUsers();
   }
-
  
   getUsers(): void {
+    this.isLoading = true;
     this.userService.findAll().subscribe(
       res => {
-        this.users = res;
-        console.log(res[0].role.name)
+        this.users = res,
+        this.isLoading = false
       },
       error => {
         console.log(error)

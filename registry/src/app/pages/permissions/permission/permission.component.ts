@@ -17,6 +17,7 @@ export class PermissionComponent implements OnInit {
   permissions!: Permission[];
 
   id!: string;
+  isLoading: boolean = false;
 
   constructor(private permissionService: PermissionService, @Inject(DOCUMENT) document: Document, private router: Router) { }
 
@@ -25,9 +26,11 @@ export class PermissionComponent implements OnInit {
   }
 
   findAll(): void {
+    this.isLoading = true;
     this.permissionService.findAll().subscribe(
       data => {
-        this.permissions = data
+        this.permissions = data,
+        this.isLoading = false;
       },
       error => {
         console.log(error)

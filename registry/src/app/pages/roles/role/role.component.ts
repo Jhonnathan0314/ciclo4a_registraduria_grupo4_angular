@@ -10,21 +10,24 @@ import Swal from 'sweetalert2';
 })
 export class RoleComponent implements OnInit {
   
-    // Declaración de variables
   roles!: Role[];
+
+  isLoading: boolean = false;
   
   constructor(private roleService: RoleService, private router: Router) { }
-  
 
   ngOnInit(): void {
     this.getRoles();
   }
 
   getRoles(){
+    this.isLoading = true;
     this.roleService.findAll().subscribe(
       res => {
-        this.roles = res;
-      },error =>{
+        this.roles = res,
+        this.isLoading = false
+      },
+      error =>{
         console.log(error)
       }
     )

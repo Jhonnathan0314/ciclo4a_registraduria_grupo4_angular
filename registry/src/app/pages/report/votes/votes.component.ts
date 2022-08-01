@@ -11,6 +11,8 @@ export class VotesComponent implements OnInit {
 
   report_votes!: Result[]
 
+  isLoading: boolean = false;
+
   constructor(private reportService: ReportService) { }
 
   ngOnInit(): void {
@@ -18,9 +20,11 @@ export class VotesComponent implements OnInit {
   }
 
   findReport(): void {
+    this.isLoading = true;
     this.reportService.findReport().subscribe(
       res => {
-        this.report_votes = res
+        this.report_votes = res,
+        this.isLoading = false
       },
       error => {
         console.log(error)

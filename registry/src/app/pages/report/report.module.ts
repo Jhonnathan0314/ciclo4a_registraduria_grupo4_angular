@@ -7,6 +7,7 @@ import { PercentagesComponent } from './percentages/percentages.component';
 import { VotesComponent } from './votes/votes.component';
 import { PartiesComponent } from './parties/parties.component';
 import { FormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReportRoutingModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ]
 })
 export class ReportModule { }

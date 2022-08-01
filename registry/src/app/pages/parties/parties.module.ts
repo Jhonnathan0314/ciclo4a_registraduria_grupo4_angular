@@ -6,6 +6,7 @@ import { PartyComponent } from './party/party.component';
 import { CreatePartyComponent } from './create-party/create-party.component';
 import { UpdatePartyComponent } from './update-party/update-party.component';
 import { FormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PartiesRoutingModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ]
 })
 export class PartiesModule { }

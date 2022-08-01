@@ -13,6 +13,8 @@ export class TableComponent implements OnInit {
 
   tables!: Table[];
 
+  isLoading: boolean = false;
+
   constructor(private tableService:TableService, private router: Router ) { }
 
   ngOnInit(): void {
@@ -20,9 +22,11 @@ export class TableComponent implements OnInit {
   }
 
   getTables(){
+    this.isLoading = true;
     this.tableService.findAll().subscribe(
       res =>{
-        this.tables = res;
+        this.tables = res,
+        this.isLoading = false
       }, 
       error =>{
         console.error(error);

@@ -41,7 +41,7 @@ export class CreateUserComponent implements OnInit {
 
     this.userService.create(this.user).subscribe(
       res => {  
-        this.userService.addRole(res._id!, this.id_role, this.user).subscribe(
+        this.userService.addRole(res._id!, this.id_role).subscribe(
           data => {
             Swal.fire(
               'Creado!',

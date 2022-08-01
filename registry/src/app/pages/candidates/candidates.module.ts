@@ -6,6 +6,7 @@ import { CandidateComponent } from './candidate/candidate.component';
 import { CreateCandidateComponent } from './create-candidate/create-candidate.component';
 import { UpdateCandidateComponent } from './update-candidate/update-candidate.component';
 import { FormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CandidatesRoutingModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ]
 })
 export class CandidatesModule { }

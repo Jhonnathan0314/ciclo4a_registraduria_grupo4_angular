@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ResultComponent } from './result/result.component';
 import { RegisterResultComponent } from './register-result/register-result.component';
 import { UpdateRegisterResultComponent } from './update-register-result/update-register-result.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UpdateRegisterResultComponent } from './update-register-result/update-r
   imports: [
     CommonModule,
     ResultsRoutingModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule
   ]
 })
 export class ResultsModule { }

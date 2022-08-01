@@ -13,6 +13,9 @@ import Swal from 'sweetalert2';
 export class ResultComponent implements OnInit {
 
   results!:Result[];
+
+  isLoading: boolean = false;
+
   constructor(@Inject(DOCUMENT) private document: Document, private resultService: ResultService, private router:Router) { }
 
   ngOnInit(): void {
@@ -20,9 +23,11 @@ export class ResultComponent implements OnInit {
   }
 
   getResults(){
+    this.isLoading = true;
     this.resultService.findAll().subscribe(
       res=>{
-        this.results = res;
+        this.results = res,
+        this.isLoading = false
       }
     )
   }
