@@ -3,35 +3,17 @@
         <h1 class="h1-semibold">Reportes - Partido</h1>
     </div>
     <mat-progress-bar mode="indeterminate" class="progress-bar" *ngIf="isLoading"></mat-progress-bar>
-    <div class="container__select" *ngIf="!isLoading">
-        <div class="container-select-arrow">
-            <select [(ngModel)]="id_table" class="select">
-                <option value="" disabled>Seleccione una mesa</option>
-                <option *ngFor="let table of tables" value="{{table._id}}">{{table._id}}</option>
-            </select>
-            <span class="select-arrow"></span>
-        </div>
-        <div class="container-select-arrow">
-            <select [(ngModel)]="name_party" (ngModelChange)="ngOnInit()" class="select">
-                <option value="" disabled>Seleccione un partido</option>
-                <option *ngFor="let party of parties" value="{{party.name}}">{{party.name}}</option>
-            </select>
-            <span class="select-arrow"></span>
-        </div>
-    </div>
     <div class="container__table" *ngIf="!isLoading">
         <table class="table">
             <thead class="thead">
                 <tr>
                     <th>Partido</th>
-                    <!-- <th>Mesa</th> -->
                     <th>Votos</th>
                 </tr>
             </thead>
             <tbody class="tbody">
                 <tr *ngFor="let reportParty of reportParties" >
                     <th>{{reportParty.party}}</th>
-                    <!-- <th><div *ngIf="name_party==reportParty.party">{{reportParty.party}}</div></th> -->
                     <th>{{reportParty.votes}}</th>
                 </tr>
             </tbody>

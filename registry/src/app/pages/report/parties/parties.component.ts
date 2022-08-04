@@ -23,29 +23,10 @@ export class PartiesComponent implements OnInit {
 
   isLoading: boolean = false;
 
-  constructor(private reportService: ReportService, private partyService: PartyService, private tableService: TableService, private router: Router) {
-    this.getTables();
-    this.getParties();
-   }
+  constructor(private reportService: ReportService, private partyService: PartyService, private tableService: TableService, private router: Router) { }
 
   ngOnInit(): void {
     this.getReport();
-  }
-
-  getParties():void{
-    this.partyService.findAll().subscribe(
-      res=>{
-        this.parties = res;
-      }
-    )
-  }
-
-  getTables():void{
-    this.tableService.findAll().subscribe(
-      res=>{
-        this.tables = res;
-      }
-    )
   }
 
   getReport(){
